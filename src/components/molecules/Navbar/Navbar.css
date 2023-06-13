@@ -1,0 +1,28 @@
+.navbar-container {
+  display: flex;
+  justify-content: flex-end; /* Alinha a Navbar no canto direito */
+}
+
+.Navbar {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 20px;
+}
+
+.Navbar img {
+  cursor: pointer;
+  width: 100px;
+  height: auto;
+}
+
+.login-container {
+  margin-left: 20px; /* Adiciona margem entre o logo e o botão de login */
+}
+
+.login-image {
+  width: 40px;
+  height: auto;
+}
+
+/* Resto do seu CSS */
