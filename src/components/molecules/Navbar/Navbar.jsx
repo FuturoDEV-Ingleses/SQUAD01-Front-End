@@ -20,9 +20,9 @@ export default function Navbar() {
 
   return (
     <nav className="Navbar">
-      <img src={logo} alt="Solar Energia Logo" onClick={() => navigate("/")} />
+      <img src={logo} alt="Logo" onClick={() => navigate("/")} />
 
-      <button className={isSelected("/")} onClick={() => handleClick("/")}>
+      <button className={isSelected("/dashboard")} onClick={() => handleClick("/")}>
         <img src={imgDashboard} alt="Icone do Dashboard" />
         <span>Dashboard</span>
       </button>
