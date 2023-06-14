@@ -1,28 +1,63 @@
-.navbar-container {
-  display: flex;
-  justify-content: flex-end; /* Alinha a Navbar no canto direito */
-}
-
 .Navbar {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  background-color: #ffffff;
-  padding: 20px;
+  padding: 20px 46px;
+  gap: 20px;
 }
 
 .Navbar img {
   cursor: pointer;
-  width: 100px;
-  height: auto;
+  color: #A098AE;
+  border-radius: 50px;
 }
 
-.login-container {
-  margin-left: 20px; /* Adiciona margem entre o logo e o botão de login */
+.Navbar button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 16px 24px;
+  gap: 10px;
+  background-color: #FBF4F4;
+
+  width: 252px;
+  height: 64px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1em;
+  line-height: 27px;
 }
 
-.login-image {
-  width: 40px;
-  height: auto;
+.Navbar button span {
+  width: auto;
+  height: 54px;
+  display: flex;
+  color: #A098AE;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Resto do seu CSS */
+.Navbar button.selected span{
+  color: #ffffff;
+}
+
+.Navbar button img {
+  color: #A098AE;
+  width: 32px;
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) rightness(100%) contrast(100%);
+}
+
+.Navbar button.selected {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-weight: 500;
+  background: #4CBC9A;
+  color: #ffffff;
+}
+
+.Navbar button.selected img {
+  filter: brightness(200%) contrast(500%);
+}

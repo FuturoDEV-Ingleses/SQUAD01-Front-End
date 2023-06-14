@@ -1,5 +1,4 @@
-export { defaut as Button } from "./atoms/Button/Button";
-export { defaut as Input } from "./atoms/Input/Input";
-
-export { defaut as Navbar } from "./molecules/Navbar/Navbar";
-//export { defaut as Card } from "./molecules/Card/Card";
+export { default as Button } from "./atoms/Button/Button";
+export { default as Input } from "./atoms/Input/Input";
+export { default as Navbar } from "./molecules/Navbar/Navbar";
+//export { default as Card } from "./molecules/Card/Card";

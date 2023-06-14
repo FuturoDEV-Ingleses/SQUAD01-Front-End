@@ -1,15 +1,17 @@
 import React from "react";
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import Login from "./pages/Login/Login";
-import Navbar from "./components/molecules/Navbar/Navbar";
+import { Dashboard } from "./pages";
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      {/* outros componentes */}
-      <Login />
-      {/* outros componentes */}
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/login' element={<Login />} />
+        <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/*' element={<Navigate to="/dashboard" replace />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

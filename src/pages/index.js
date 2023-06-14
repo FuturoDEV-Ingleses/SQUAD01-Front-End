@@ -1,5 +1,5 @@
-export { defaut as Login } from "./Login/Login";
-export { defaut as Cadastro } from "./Cadastro/Cadastro";
-//export { defaut as Dashboard } from "./Dashboard/Dashboard";
-//export { defaut as Estoque } from "./Estoque/Estoque";
-//export { defaut as Armazem } from "./Armazem/Armazem";
+export { default as Login } from "./Login/Login";
+export { default as Dashboard } from "./Dashboard/Dashboard";
+//export { default as Cadastro } from "./Cadastro/Cadastro";
+//export { default as Estoque } from "./Estoque/Estoque";
+//export { default as Armazem } from "./Armazem/Armazem";
