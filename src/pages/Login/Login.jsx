@@ -2,8 +2,9 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../../components/atoms/Button/Button";
 import Input from "../../../src/components/atoms/Input/Input";
-import imgLogin from '../../assets/teste.png';
-import imgDev from '../../assets/logodev.svg';
+import imgLogin from "../../assets/teste.png";
+import imgDev from "../../assets/logodev.svg";
+import { Link } from "react-router-dom";
 import "./Login.css";
 
 const Login = () => {
@@ -31,10 +32,12 @@ const Login = () => {
           <form onSubmit={handleSubmit}>
             <Input type="email" placeholder="Email" />
             <Input type="password" placeholder="Senha" />
-            <Button type="submit" onClick={handleSubmit}>Entrar</Button>
+            <Button type="submit" onClick={handleSubmit}>
+              Entrar
+            </Button>
           </form>
           <p>
-            Ainda não tem cadastro? <a href="#">Cadastre-se</a>
+            Ainda não tem cadastro? <Link to="/cadastro">Cadastre-se</Link>
           </p>
         </div>
       </div>

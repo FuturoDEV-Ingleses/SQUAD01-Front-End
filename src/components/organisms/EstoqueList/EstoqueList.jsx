@@ -1,7 +1,6 @@
-/*import "./Estoque.css";
+import "./EstoqueList.css";
 import { useState, useEffect } from "react";
 import { Button } from "../../index";
-
 import { getData } from "../../../utils";
 
 export default function EstoqueList({ setOpenForm, setSelectedEstoque }) {
@@ -12,14 +11,15 @@ export default function EstoqueList({ setOpenForm, setSelectedEstoque }) {
   }, []);
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:3333/unidades/${id}`, {
+    fetch(`http://localhost:3333/estoque/${id}`, {
       method: "DELETE",
+    }).then(() => {
+      getData("estoque", setEstoque);
     });
-    getData("estoque", setEstoque);
   };
 
   const handleEdit = (estoque) => {
-    setSelectedUnit(estoque);
+    setSelectedEstoque(estoque);
     setOpenForm(true);
   };
 
@@ -32,31 +32,29 @@ export default function EstoqueList({ setOpenForm, setSelectedEstoque }) {
         <thead>
           <tr>
             <th>ID</th>
-            <th>Armazenado</th>
+            <th>Armazenada</th>
             <th>Produto</th>
             <th>Quantidade</th>
             <th>Categoria</th>
-            <th></th>
-            <th></th>
           </tr>
         </thead>
 
         <tbody>
-          {estoque.map((estoque) => (
-            <tr key={estoque.id}>
-              <td>{estoque.id}</td>
-              <td>{estoque.armazenado}</td>
-              <td>{estoque.produto}</td>
-              <td>{estoque.quantidade}</td>
-              <td>{estoque.categoria}</td>
+          {estoque.map((item) => (
+            <tr key={item.id}>
+              <td>{item.armazenado}</td>
+              <td>{item.produto}</td>
+              <td>{item.Quantidade}</td>
+              <td>{item.Categoria}</td>
+              <td>{estoque.length}</td>
               <td>
-                <Button onClick={() => handleEdit(estoque)} classStyle="green">
+                <Button onClick={() => handleEdit(item)} classStyle="green">
                   Editar
                 </Button>
               </td>
               <td>
                 <Button
-                  onClick={() => handleDelete(estoque.id)}
+                  onClick={() => handleDelete(item.id)}
                   classStyle="danger"
                 >
                   Remover
@@ -71,11 +69,11 @@ export default function EstoqueList({ setOpenForm, setSelectedEstoque }) {
       <br />
       <Button
         id="new-estoque"
-        classStyle="secondary"
+        classStyle="secondary add-product-button" // Adicionando a classe add-product-button
         onClick={() => setOpenForm(true)}
       >
-        Nova Unidade
+        Cadastrar
       </Button>
     </section>
   );
-};*/
+}
