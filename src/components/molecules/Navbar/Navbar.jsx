@@ -2,7 +2,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import logo from "../../../assets/logodev.svg";
 import imgDashboard from "../../../assets/dashboard.svg";
 import imgEstoque from "../../../assets/estoque.svg";
-import imgSair from "../../../assets/sai2.png";
+import imgSair from "../../../assets/sair.png";
 import imgArmazem from "../../../assets/armazem.svg";
 import "./Navbar.css";
 
@@ -20,7 +20,7 @@ export default function Navbar() {
 
   return (
     <nav className="Navbar">
-      <img src={logo} alt="Logo" onClick={() => navigate("/")} />
+      <img className="logo" src={logo} alt="Logo" onClick={() => navigate("/")} />
 
       <button className={isSelected("/dashboard")} onClick={() => handleClick("/")}>
         <img src={imgDashboard} alt="Icone do Dashboard" />

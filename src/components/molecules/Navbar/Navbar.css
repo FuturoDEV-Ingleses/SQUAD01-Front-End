@@ -9,6 +9,9 @@
 .Navbar img {
   cursor: pointer;
   color: #A098AE;
+}
+
+.logo{
   border-radius: 50px;
 }
 
