@@ -28,18 +28,18 @@ export default function Navbar() {
       </button>
 
       <button
-        className={isSelected("/unidades-consulmidora")}
-        onClick={() => handleClick("/unidades-consulmidora")}
+        className={isSelected("/estoque")}
+        onClick={() => handleClick("/estoque")}
       >
-        <img src={imgEstoque} alt="Icone da Unidade Consumidora" />
+        <img src={imgEstoque} alt="Icone Estoque" />
         <span>Estoque</span>
       </button>
 
       <button
-        className={isSelected("/cadastro-energia-gerada")}
-        onClick={() => handleClick("/cadastro-energia-gerada")}
+        className={isSelected("/armazem")}
+        onClick={() => handleClick("/armazem")}
       >
-        <img src={imgArmazem} alt="Icone de Cadastro de Energia Gerada" />
+        <img src={imgArmazem} alt="Icone de Armazem" />
         <span>Armazem</span>
       </button>
 
