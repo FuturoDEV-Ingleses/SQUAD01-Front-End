@@ -8,7 +8,7 @@ export default function EstoqueCadastro({
   setSelectedEstoque,
 }) {
   const emptyState = {
-    armazenado: "",
+    armazenada: "",
     produto: "",
     quantidade: "",
     categoria: "",
@@ -53,8 +53,8 @@ export default function EstoqueCadastro({
     <section className="estoque-cadastro">
       <h2>Cadastro de Produtos</h2>
       <form onSubmit={handleSave}>
-        {["armazenado", "produto", "quantidade", "categoria"].map((campo) => (
-          <div key={campo}>
+        {["armazenada", "produto", "quantidade", "categoria"].map((campo) => (
+          <div key={campo} className="form-field">
             <label htmlFor={campo}>{capitalizeFirstLetter(campo)}</label>
             <Input
               required

@@ -23,6 +23,34 @@ export default function EstoqueList({ setOpenForm, setSelectedEstoque }) {
     setOpenForm(true);
   };
 
+  const renderEstoqueItems = () => {
+    if (estoque.length === 0) {
+      return (
+        <tr>
+          <td colSpan={6}>Nenhum produto encontrado.</td>
+        </tr>
+      );
+    }
+
+    return estoque.map((item) => (
+      <tr key={item.id}>
+        <td>{item.id}</td>
+        <td>{item.armazenada}</td>
+        <td>{item.produto}</td>
+        <td>{item.quantidade}</td>
+        <td>{item.categoria}</td>
+        <td>
+          <Button onClick={() => handleEdit(item)} classStyle="secondary">
+            Editar
+          </Button>
+          <Button onClick={() => handleDelete(item.id)} classStyle="danger">
+            Remover
+          </Button>
+        </td>
+      </tr>
+    ));
+  };
+
   return (
     <section className="estoque-list">
       <h2>Lista de Produtos</h2>
@@ -36,44 +64,12 @@ export default function EstoqueList({ setOpenForm, setSelectedEstoque }) {
             <th>Produto</th>
             <th>Quantidade</th>
             <th>Categoria</th>
+            <th>Ações</th>
           </tr>
         </thead>
 
-        <tbody>
-          {estoque.map((item) => (
-            <tr key={item.id}>
-              <td>{item.armazenado}</td>
-              <td>{item.produto}</td>
-              <td>{item.Quantidade}</td>
-              <td>{item.Categoria}</td>
-              <td>{estoque.length}</td>
-              <td>
-                <Button onClick={() => handleEdit(item)} classStyle="green">
-                  Editar
-                </Button>
-              </td>
-              <td>
-                <Button
-                  onClick={() => handleDelete(item.id)}
-                  classStyle="danger"
-                >
-                  Remover
-                </Button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
+        <tbody>{renderEstoqueItems()}</tbody>
       </table>
-
-      <br />
-      <br />
-      <Button
-        id="new-estoque"
-        classStyle="secondary add-product-button" // Adicionando a classe add-product-button
-        onClick={() => setOpenForm(true)}
-      >
-        Cadastrar
-      </Button>
     </section>
   );
 }
