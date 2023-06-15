@@ -1,0 +1,59 @@
+/* EstoqueList.css */
+
+.estoque-list {
+  margin-top: 20px;
+}
+
+.estoque-list h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.estoque-list table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.estoque-list th,
+.estoque-list td {
+  padding: 8px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.estoque-list th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.estoque-list .form-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.estoque-list .form-field input {
+  width: 100%;
+  padding: 4px 8px;
+}
+
+.estoque-list .form-field .edit-icon,
+.estoque-list .form-field .remove-icon {
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.estoque-list .form-field .edit-icon {
+  margin-left: 6px;
+}
+
+.estoque-list .form-field .remove-icon {
+  margin-left: 4px;
+}
+
+.estoque-list .add-product-button {
+  font-size: 14px;
+  padding: 6px 12px;
+  margin-top: 20px;
+}
