@@ -10,7 +10,11 @@
   height: 100%; /* Define a altura do container de imagem como 100% */
   background-size: cover; /* Redimensiona a imagem de fundo para preencher o container */
   background-position: center; /* Centraliza a imagem de fundo no container */
-  background-color: palevioletred; /* Define uma cor de fundo para o container de imagem */
+  background-color: rgb(
+    245,
+    228,
+    234
+  ); /* Define uma cor de fundo para o container de imagem */
 }
 
 .image-container img {

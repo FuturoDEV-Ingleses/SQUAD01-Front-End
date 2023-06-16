@@ -1,43 +1,24 @@
+.estoque-cadastro {
+  margin-top: 20px;
+}
+
 .estoque-cadastro h2 {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 28px;
-  line-height: 42px;
-  color: #374557;
-  margin-bottom: 30px;
+  font-size: 18px;
+  margin-bottom: 10px;
 }
 
 .estoque-cadastro form {
-  display: flex;
-  flex-direction: column;
-}
-
-.estoque-cadastro input {
-  height: 57px;
-}
-
-.estoque-cadastro label {
-  font-family: "Raleway";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 24px;
-  color: #53575d;
-  display: block;
-  margin-bottom: 5px;
-}
-
-.estoque-cadastro div.checkbox {
-  display: flex;
-  align-items: center;
   margin-bottom: 20px;
 }
 
-.estoque-cadastro div.checkbox label {
+.estoque-cadastro label {
+  font-weight: bold;
+}
+
+.estoque-cadastro div {
   margin-bottom: 10px;
 }
 
 .estoque-cadastro button {
-  margin-bottom: 20px;
+  margin-top: 10px;
 }
