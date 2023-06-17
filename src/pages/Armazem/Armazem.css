@@ -1,37 +1,40 @@
 .armazem-container {
-  margin-top: 10px;
+  margin-top: 45px;
+  display: flex;
+  flex-direction: column;
 }
 
-.armazem-container h2 {
-  font-size: 16px;
-  margin-bottom: 8px;
+.form-field {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
 }
 
-.armazem-container form {
-  margin-bottom: 16px;
+.form-field label {
+  margin-right: 10px;
+  width: 80px;
 }
 
-.armazem-container table {
-  width: 100%;
-  border-collapse: collapse;
+.form-field select {
+  flex: 1; /* Utiliza todo o espaço restante na linha */
 }
 
-.armazem-container th,
-.armazem-container td {
-  padding: 6px;
-  border: 1px solid #ccc;
-  text-align: center;
+.button-container {
+  margin-top: 20px;
+  padding: 10px 5px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: fit-content;
 }
 
-.armazem-container th {
-  background-color: #f2f2f2;
-  font-weight: bold;
+.button-container .cadastrar-button {
+  padding: 10px 5px; /* Ajuste o espaçamento interno do botão conforme necessário */
+  width: fit-content; /* Define a largura com base no conteúdo do botão */
+  background-color: blue; /* Cor de fundo azul */
+  color: white; /* Texto em branco */
 }
 
-.armazem-container .button-container {
-  margin-top: 8px;
-}
-
-.armazem-container .button-container button {
-  margin-right: 8px;
+.button-container button {
+  padding: 10px 10px; /* Ajuste o espaçamento interno do botão conforme necessário */
 }

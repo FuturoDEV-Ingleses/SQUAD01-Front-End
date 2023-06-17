@@ -1,5 +1,3 @@
-// utils.js
-
 export const postData = async (path, data) => {
   try {
     const response = await fetch(`http://localhost:3333/${path}`, {
@@ -48,6 +46,23 @@ export const updateData = async (path, id, data) => {
 
     if (!response.ok) {
       throw new Error("Failed to update data");
+    }
+
+    const responseData = await response.json();
+    return responseData;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const deleteData = async (path, id) => {
+  try {
+    const response = await fetch(`http://localhost:3333/${path}/${id}`, {
+      method: "DELETE",
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to delete data");
     }
 
     const responseData = await response.json();
