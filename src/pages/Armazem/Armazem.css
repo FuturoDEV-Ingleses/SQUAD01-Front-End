@@ -1,37 +1,55 @@
 .armazem-container {
-  margin-top: 10px;
+  margin: 20px;
 }
 
 .armazem-container h2 {
-  font-size: 16px;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
-.armazem-container form {
-  margin-bottom: 16px;
+.form-field {
+  margin-bottom: 10px;
 }
 
-.armazem-container table {
+.label {
+  display: block;
+  font-weight: bold;
+}
+
+.input {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.button-container {
+  margin-top: 10px;
+}
+
+.button-container button {
+  margin-right: 10px;
+}
+
+.table {
   width: 100%;
   border-collapse: collapse;
 }
 
-.armazem-container th,
-.armazem-container td {
-  padding: 6px;
+.table th,
+.table td {
+  padding: 8px;
   border: 1px solid #ccc;
+}
+
+.table th {
+  background-color: #f0f0f0;
+  text-align: left;
+}
+
+.table td {
   text-align: center;
 }
 
-.armazem-container th {
-  background-color: #f2f2f2;
-  font-weight: bold;
-}
-
-.armazem-container .button-container {
-  margin-top: 8px;
-}
-
-.armazem-container .button-container button {
-  margin-right: 8px;
+.table td.actions button {
+  margin-right: 5px;
 }

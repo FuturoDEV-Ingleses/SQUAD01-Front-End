@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../../components/atoms/Button/Button";
 import Input from "../../../src/components/atoms/Input/Input";
@@ -8,13 +8,37 @@ import "./Cadastro.css";
 
 const Cadastro = () => {
   const navigate = useNavigate();
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // Lógica para processar o formulário de login
+    const { nome, email, senha } = event.target.elements;
 
-    // Redirecionar para a página "/dashboard"
-    navigate("/dashboard");
+    try {
+      const response = await fetch("/api/cadastro", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          nome: nome.value,
+          email: email.value,
+          senha: senha.value,
+        }),
+      });
+
+      if (response.ok) {
+        // Cadastro bem-sucedido, redirecionar para a página de login
+        navigate("/login");
+      } else {
+        // Cadastro falhou, exibir mensagem de erro
+        const errorData = await response.json();
+        setErrorMessage(errorData.message);
+      }
+    } catch (error) {
+      console.error("Erro ao processar a solicitação:", error);
+      setErrorMessage("Ocorreu um erro ao processar a solicitação.");
+    }
   };
 
   return (
@@ -29,13 +53,12 @@ const Cadastro = () => {
             <span>Cadastro</span>
           </div>
           <form onSubmit={handleSubmit}>
-            <Input type="nome" placeholder="Nome" />
-            <Input type="email" placeholder="Email" />
-            <Input type="password" placeholder="Senha" />
-            <Button type="submit" onClick={handleSubmit}>
-              Entrar
-            </Button>
+            <Input type="text" placeholder="Nome" name="nome" />
+            <Input type="email" placeholder="Email" name="email" />
+            <Input type="password" placeholder="Senha" name="senha" />
+            <Button type="submit">Cadastrar</Button>
           </form>
+          {errorMessage && <p className="error-message">{errorMessage}</p>}
         </div>
       </div>
     </div>

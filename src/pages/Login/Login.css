@@ -1,16 +1,16 @@
 .login-container {
-  display: flex; /* Cria um container flexível */
-  justify-content: center; /* Centraliza horizontalmente os itens */
-  align-items: center; /* Centraliza verticalmente os itens */
-  height: 100vh; /* Define a altura do container como 100% da altura do viewport */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .image-container {
-  width: 50%; /* Define a largura do container de imagem como 50% */
-  height: 100%; /* Define a altura do container de imagem como 100% */
-  background-size: cover; /* Redimensiona a imagem de fundo para preencher o container */
-  background-position: center; /* Centraliza a imagem de fundo no container */
-  background-color: palevioletred; /* Define uma cor de fundo para o container de imagem */
+  width: 50%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-color: palevioletred;
 }
 
 .image-container img {
@@ -19,43 +19,42 @@
   object-fit: cover;
 }
 
-
 body {
-  overflow-y: hidden; /* Oculta a barra de rolagem vertical do navegador */
+  overflow-y: hidden;
 }
 
 .form-container {
-  display: flex; /* Cria um container flexível */
-  width:  50%; /* Define a largura do container do formulário como 50% */
-  padding: 20px; /* Adiciona um espaçamento interno de 20px */
-  justify-content: center; /* Centraliza horizontalmente os itens */
+  display: flex;
+  width: 50%;
+  padding: 20px;
+  justify-content: center;
 }
 
 .form-body {
-  width: auto; /* Define a largura do corpo do formulário como 420px */
-  display: flex; /* Cria um container flexível */
-  flex-direction: column; /* Alinha os itens verticalmente em uma coluna */
-  align-items: center; /* Centraliza os itens horizontalmente */
-  justify-content: center; /* Centraliza verticalmente os itens */
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .custom-button {
-  width: 100%; /* Define a largura do botão como 100% */
-  padding: 20px; /* Adiciona um espaçamento interno de 20px */
-  transition: background-color 0.3s; /* Define uma transição de 0,3 segundos para a cor de fundo */
+  width: 100%;
+  padding: 20px;
+  transition: background-color 0.3s;
 }
 
 .custom-button:hover {
-  background-color: #52bc4c; /* Nova cor de fundo quando o botão está em hover */
-  transition-delay: 0.3s; /* Atraso de 0,3 segundos antes de iniciar a transição */
+  background-color: #52bc4c;
+  transition-delay: 0.3s;
 }
 
-.form-header{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap:20px;
-    padding: 10px;
+.form-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 10px;
 }
 
 .form-header img {
@@ -65,18 +64,22 @@ body {
 }
 
 .custom-input {
-  width: 100%; /* Define a largura do campo de entrada como 100% */
-  padding: 20px; /* Adiciona um espaçamento interno de 20px */
+  width: 100%;
+  padding: 20px;
 }
 
 h2 {
-  margin-top: 0; /* Remove a margem superior do título h2 */
+  margin-top: 0;
 }
 
 p {
-  margin-top: 10px; /* Define uma margem superior de 10px para parágrafos */
+  margin-top: 10px;
 }
 
 a {
-  color: blue; /* Define a cor do link como azul */
+  color: blue;
+}
+
+.error-message {
+  color: red;
 }
