@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { Button } from "../../components";
 import { postData, getData, updateData, deleteData } from "../../utils";
 import Container from "../../components/templates/Container/Container";
@@ -18,7 +17,7 @@ export default function Armazem() {
 
   const fetchData = async () => {
     const data = await getData("armazens");
-    setArmazens(data);
+    setArmazens(data || []); // Verificação para garantir que seja uma matriz válida
   };
 
   const handleAddArmazem = async (event) => {
@@ -136,25 +135,26 @@ export default function Armazem() {
             </tr>
           </thead>
           <tbody>
-            {armazens.map((armazem) => (
-              <tr key={armazem.id}>
-                <td>{armazem.id}</td>
-                <td>{armazem.nome}</td>
-                <td>{armazem.tipoAnimal}</td>
-                <td>{armazem.situacao}</td>
-                <td>
-                  <Button onClick={() => handleEditArmazem(armazem)}>
-                    Editar
-                  </Button>
-                  <Button
-                    onClick={() => handleRemoveArmazem(armazem.id)}
-                    disabled={checkArmazemProducts(armazem.id)}
-                  >
-                    Remover
-                  </Button>
-                </td>
-              </tr>
-            ))}
+            {armazens &&
+              armazens.map((armazem) => (
+                <tr key={armazem.id}>
+                  <td>{armazem.id}</td>
+                  <td>{armazem.nome}</td>
+                  <td>{armazem.tipoAnimal}</td>
+                  <td>{armazem.situacao}</td>
+                  <td>
+                    <Button onClick={() => handleEditArmazem(armazem)}>
+                      Editar
+                    </Button>
+                    <Button
+                      onClick={() => handleRemoveArmazem(armazem.id)}
+                      disabled={checkArmazemProducts(armazem.id)}
+                    >
+                      Remover
+                    </Button>
+                  </td>
+                </tr>
+              ))}
           </tbody>
         </table>
       </div>

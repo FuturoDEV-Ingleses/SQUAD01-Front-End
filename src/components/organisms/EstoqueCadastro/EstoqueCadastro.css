@@ -9,8 +9,10 @@
 }
 
 .estoque-cadastro form {
-  margin-bottom: 10px;
-  max-width: 250px;
+  margin-bottom: 20px;
+  max-width: 220px;
+  display: flex; /* Adiciona display: flex para o alinhamento */
+  flex-direction: column; /* Alinha os elementos verticalmente */
 }
 
 .estoque-cadastro label {
@@ -25,20 +27,19 @@
 .estoque-cadastro select,
 .estoque-cadastro input {
   width: 100%;
-  padding: 13px;
+  padding: 5px;
   border: 1px solid #ccc;
-  border-radius: 10px;
+  border-radius: 4px;
   font-family: Arial, sans-serif;
 }
 
 .estoque-cadastro button {
-  margin-top: 10px;
-  margin-left: auto;
+  margin-top: 15px;
+  margin-left: auto; /* Move o botão para a direita */
   background-color: blue;
   color: white;
   border: none;
-  padding: 10px 14px;
-  border-radius: 15px;
+  padding: 8px 14px;
+  border-radius: 4px;
   font-family: Arial, sans-serif;
-  max-width: 210px;
 }

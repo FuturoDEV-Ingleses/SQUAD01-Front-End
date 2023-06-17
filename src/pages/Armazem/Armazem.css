@@ -1,55 +1,40 @@
 .armazem-container {
-  margin: 20px;
-}
-
-.armazem-container h2 {
-  margin-bottom: 10px;
+  margin-top: 45px;
+  display: flex;
+  flex-direction: column;
 }
 
 .form-field {
   margin-bottom: 10px;
+  display: flex;
+  align-items: center;
 }
 
-.label {
-  display: block;
-  font-weight: bold;
+.form-field label {
+  margin-right: 10px;
+  width: 80px;
 }
 
-.input {
-  width: 100%;
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+.form-field select {
+  flex: 1; /* Utiliza todo o espaço restante na linha */
 }
 
 .button-container {
-  margin-top: 10px;
+  margin-top: 20px;
+  padding: 10px 5px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: fit-content;
+}
+
+.button-container .cadastrar-button {
+  padding: 10px 5px; /* Ajuste o espaçamento interno do botão conforme necessário */
+  width: fit-content; /* Define a largura com base no conteúdo do botão */
+  background-color: blue; /* Cor de fundo azul */
+  color: white; /* Texto em branco */
 }
 
 .button-container button {
-  margin-right: 10px;
-}
-
-.table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.table th,
-.table td {
-  padding: 8px;
-  border: 1px solid #ccc;
-}
-
-.table th {
-  background-color: #f0f0f0;
-  text-align: left;
-}
-
-.table td {
-  text-align: center;
-}
-
-.table td.actions button {
-  margin-right: 5px;
+  padding: 10px 10px; /* Ajuste o espaçamento interno do botão conforme necessário */
 }

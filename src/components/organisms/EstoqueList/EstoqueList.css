@@ -1,57 +1,58 @@
 .estoque-list {
-  margin-top: 20px;
+  margin: 80px auto;
+  max-width: 800px;
 }
 
 .estoque-list h2 {
-  font-size: 18px;
+  font-size: 25px;
   margin-bottom: 10px;
 }
 
 .estoque-list table {
-  width: 100%;
+  width: 90%;
   border-collapse: collapse;
 }
 
-.estoque-list th,
-.estoque-list td {
-  padding: 8px;
-  border: 1px solid #ccc;
+.estoque-list table th,
+.estoque-list table td {
+  padding: 10px;
   text-align: center;
+  border: 2px solid white;
 }
 
-.estoque-list th {
-  background-color: #f2f2f2;
+.estoque-list table th {
+  background-color: #f0f0f0;
   font-weight: bold;
 }
 
-.estoque-list .form-field {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.estoque-list table td:last-child {
+  white-space: nowrap;
 }
 
-.estoque-list .form-field input {
-  width: 100%;
-  padding: 4px 8px;
-}
-
-.estoque-list .form-field .edit-icon,
-.estoque-list .form-field .remove-icon {
+.estoque-list .edit-button {
+  background-color: #28a745;
+  color: #fff;
+  padding: 3px 10px;
+  border: none;
+  border-radius: 3px;
   font-size: 14px;
   cursor: pointer;
+  width: 80px;
 }
 
-.estoque-list .form-field .edit-icon {
-  margin-left: 6px;
-}
-
-.estoque-list .form-field .remove-icon {
-  margin-left: 4px;
-}
-
-.estoque-list .add-product-button {
+.estoque-list .remove-button {
+  background-color: #dc3545;
+  color: #fff;
+  padding: 3px 10px;
+  border: none;
+  border-radius: 3px;
   font-size: 14px;
-  padding: 6px 12px;
-  margin-top: 20px;
+  cursor: pointer;
+  width: 80px;
+  margin-left: 5px;
+}
+
+.estoque-list .edit-button:hover,
+.estoque-list .remove-button:hover {
+  opacity: 0.8;
 }

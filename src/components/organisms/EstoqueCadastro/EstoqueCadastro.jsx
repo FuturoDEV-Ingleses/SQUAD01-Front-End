@@ -85,7 +85,7 @@ export default function EstoqueCadastro({
               });
             }}
           >
-            <option value="">Selecione o local</option>
+            <option value="">Selecione o local de armazenamento</option>
             <option value="Estoque 01">Estoque 01</option>
             <option value="Estoque 02">Estoque 02</option>
             <option value="Estoque 03">Estoque 03</option>
@@ -142,7 +142,7 @@ export default function EstoqueCadastro({
               setForm({
                 ...form,
                 animal: e.target.value,
-                armazenada: "",
+                armazenada: "", // Reset selected armazenada when animal changes
               });
             }}
           >
