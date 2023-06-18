@@ -1,5 +1,4 @@
 .estoque-list {
-  margin: 80px auto;
   max-width: 800px;
 }
 
@@ -9,19 +8,65 @@
 }
 
 .estoque-list table {
-  width: 90%;
+  margin: 50px auto;
   border-collapse: collapse;
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 12px 26px #101e730f;
+  font-family: Raleway;
 }
 
 .estoque-list table th,
 .estoque-list table td {
   padding: 10px;
   text-align: center;
-  border: 2px solid white;
+  border: none;
+}
+
+.edits{    
+  display: flex;
+  gap: 10px;
+}
+
+.secondary {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding: 8px 16px;
+  font-size: 16px;
+  color: #fbfcff;
+  background: #28ab63;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+}
+
+.danger {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding: 8px 16px;
+  font-size: 16px;
+  color: #fbfcff;
+  background: #d82d56;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+}
+
+
+.estoque-list thead {
+  background-color: #fafafa;
+  color: #25282b;
+  height: 55px;
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
 }
 
 .estoque-list table th {
-  background-color: #f0f0f0;
   font-weight: bold;
 }
 

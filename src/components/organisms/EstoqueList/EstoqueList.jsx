@@ -1,6 +1,5 @@
 import "./EstoqueList.css";
 import { useState, useEffect } from "react";
-import { Button } from "../../index";
 import { getData } from "../../../utils";
 
 export default function EstoqueList({ setOpenForm, setSelectedEstoque }) {
@@ -44,12 +43,12 @@ export default function EstoqueList({ setOpenForm, setSelectedEstoque }) {
         <td>{item.quantidade}</td>
         <td>{item.categoria}</td>
         <td>
-          <Button onClick={() => handleEdit(item)} classStyle="secondary">
+          <button onClick={() => handleEdit(item)} className="secondary">
             Editar
-          </Button>
-          <Button onClick={() => handleDelete(item.id)} classStyle="danger">
+          </button>
+          <button onClick={() => handleDelete(item.id)} className="danger">
             Remover
-          </Button>
+          </button>
         </td>
       </tr>
     ));
@@ -57,7 +56,7 @@ export default function EstoqueList({ setOpenForm, setSelectedEstoque }) {
 
   return (
     <section className="estoque-list">
-      <h2>Lista de Produtos</h2>
+      <h2 className="sub-title">Lista de Produtos</h2>
       <br />
 
       <table>
@@ -78,9 +77,9 @@ export default function EstoqueList({ setOpenForm, setSelectedEstoque }) {
             <td>Ração</td>
             <td>20KG</td>
             <td>Adulto</td>
-            <td>
-              <Button classStyle="secondary">Editar</Button>
-              <Button classStyle="danger">Remover</Button>
+            <td className="edits">
+              <button className="secondary">Editar</button>
+              <button className="danger">Remover</button>
             </td>
           </tr>
           <tr>
@@ -89,9 +88,9 @@ export default function EstoqueList({ setOpenForm, setSelectedEstoque }) {
             <td>Antiparasitária</td>
             <td>4</td>
             <td>Filhote</td>
-            <td>
-              <Button classStyle="secondary">Editar</Button>
-              <Button classStyle="danger">Remover</Button>
+            <td className="edits">
+              <button className="secondary">Editar</button>
+              <button className="danger">Remover</button>
             </td>
           </tr>
           <tr>
@@ -100,9 +99,9 @@ export default function EstoqueList({ setOpenForm, setSelectedEstoque }) {
             <td>Ração</td>
             <td>300KG</td>
             <td>Adulto</td>
-            <td>
-              <Button classStyle="secondary">Editar</Button>
-              <Button classStyle="danger">Remover</Button>
+            <td className="edits">
+              <button className="secondary">Editar</button>
+              <button className="danger">Remover</button>
             </td>
           </tr>
           <tr>
@@ -111,9 +110,9 @@ export default function EstoqueList({ setOpenForm, setSelectedEstoque }) {
             <td>Antipulgas</td>
             <td>12</td>
             <td>Filhote</td>
-            <td>
-              <Button classStyle="secondary">Editar</Button>
-              <Button classStyle="danger">Remover</Button>
+            <td className="edits">
+              <button className="secondary">Editar</button>
+              <button className="danger">Remover</button>
             </td>
           </tr>
         </tbody>

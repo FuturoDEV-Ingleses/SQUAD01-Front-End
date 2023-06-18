@@ -2,6 +2,7 @@ import { useState } from "react";
 import Container from "../../components/templates/Container/Container";
 import EstoqueList from "../../components/organisms/EstoqueList/EstoqueList";
 import EstoqueCadastro from "../../components/organisms/EstoqueCadastro/EstoqueCadastro";
+import "./Estoque.css";
 
 export default function Estoque() {
   const [openForm, setOpenForm] = useState(false);

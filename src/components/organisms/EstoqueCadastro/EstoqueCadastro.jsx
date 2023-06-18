@@ -69,7 +69,7 @@ export default function EstoqueCadastro({
 
   return (
     <section className="estoque-cadastro">
-      <h2>Cadastro de Produtos</h2>
+      <h2 className="sub-title">Cadastro de Produtos</h2>
       <form onSubmit={handleSave}>
         <div className="form-field">
           <label htmlFor="armazenada">Armazenamento</label>

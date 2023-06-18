@@ -4,3 +4,13 @@
   padding: 0;
   text-decoration: none;
 }
+
+.sub-title {
+  font-family: system-ui;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 54px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #374557;
+}

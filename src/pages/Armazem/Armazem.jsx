@@ -86,7 +86,7 @@ export default function Armazem() {
   return (
     <Container title="Armazém">
       <div className="armazem-container">
-        <h2>Cadastro de Armazenamento</h2>
+        <h2 className="sub-title">Cadastro de Armazenamento</h2>
         <form onSubmit={editingId ? handleUpdateArmazem : handleAddArmazem}>
           <div className="form-field">
             <label htmlFor="nome-input">Nome:</label>
