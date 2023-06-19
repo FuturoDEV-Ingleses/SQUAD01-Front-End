@@ -7,6 +7,7 @@ import "./Armazem.css";
 
 export default function Armazem() {
   const [armazens, setArmazens] = useState([]);
+  const [armazemAtual, setArmazemAtual] = useState(null);
   const [nome, setNome] = useState("");
   const [tipoAnimal, setTipoAnimal] = useState("");
   const [editingId, setEditingId] = useState(null);
@@ -17,7 +18,7 @@ export default function Armazem() {
 
   const fetchData = async () => {
     const data = await getData("armazens");
-    setArmazens(data || []); // Verificação para garantir que seja uma matriz válida
+    setArmazens(data || []);
   };
 
   const handleAddArmazem = async (event) => {
@@ -30,15 +31,11 @@ export default function Armazem() {
       situacao: "ativo",
     };
 
+    setArmazemAtual(newArmazem);
+
     await postData("armazens", newArmazem);
     fetchData();
     resetForm();
-  };
-
-  const handleEditArmazem = async (armazem) => {
-    setEditingId(armazem.id);
-    setNome(armazem.nome);
-    setTipoAnimal(armazem.tipoAnimal);
   };
 
   const handleUpdateArmazem = async () => {
@@ -47,6 +44,8 @@ export default function Armazem() {
       nome,
       tipoAnimal,
     };
+
+    setArmazemAtual(updatedArmazem);
 
     await updateData("armazens", editingId, updatedArmazem);
     fetchData();
@@ -67,8 +66,6 @@ export default function Armazem() {
   };
 
   const checkArmazemProducts = (id) => {
-    // Lógica para verificar se o armazém possui produtos
-    // Retorne true se houver produtos, caso contrário, retorne false
     return false;
   };
 
@@ -78,8 +75,26 @@ export default function Armazem() {
     setTipoAnimal("");
   };
 
+  const handleEditArmazem = async (armazem) => {
+    setEditingId(armazem.id);
+    setNome(armazem.nome);
+    setTipoAnimal(armazem.tipoAnimal);
+  };
+
+  const handleCancelEdit = () => {
+    setEditingId(null);
+    resetForm();
+  };
+
+  const handleSaveArmazem = () => {
+    if (editingId) {
+      handleUpdateArmazem();
+    } else {
+      handleAddArmazem();
+    }
+  };
+
   const generateId = () => {
-    // Lógica para gerar um ID único para o armazém
     return Math.random().toString(36).substr(2, 9);
   };
 
@@ -87,20 +102,15 @@ export default function Armazem() {
     <Container title="Armazém">
       <div className="armazem-container">
         <h2 className="sub-title">Cadastro de Armazenamento</h2>
-        <form onSubmit={editingId ? handleUpdateArmazem : handleAddArmazem}>
+        <form>
           <div className="form-field">
             <label htmlFor="nome-input">Nome:</label>
-            <select
+            <input
               id="nome-input"
+              type="text"
               value={nome}
               onChange={(e) => setNome(e.target.value)}
-            >
-              <option value="">Selecione...</option>
-              <option value="Estoque 01">Estoque 01</option>
-              <option value="Estoque 02">Estoque 02</option>
-              <option value="Estoque 03">Estoque 03</option>
-              <option value="Estoque 04">Estoque 04</option>
-            </select>
+            />
           </div>
 
           <div className="form-field">
@@ -117,7 +127,7 @@ export default function Armazem() {
           </div>
 
           <div className="button-container">
-            <Button type="submit">
+            <Button type="button" onClick={handleSaveArmazem}>
               {editingId ? "Atualizar" : "Cadastrar"}
             </Button>
           </div>
@@ -131,30 +141,55 @@ export default function Armazem() {
               <th>Nome</th>
               <th>Animal</th>
               <th>Situação</th>
-              <th>Ações</th>
+              <th>Ações</th> {/* Nova coluna para as ações */}
             </tr>
           </thead>
           <tbody>
-            {armazens &&
-              armazens.map((armazem) => (
-                <tr key={armazem.id}>
-                  <td>{armazem.id}</td>
-                  <td>{armazem.nome}</td>
-                  <td>{armazem.tipoAnimal}</td>
-                  <td>{armazem.situacao}</td>
-                  <td>
-                    <Button onClick={() => handleEditArmazem(armazem)}>
-                      Editar
-                    </Button>
-                    <Button
-                      onClick={() => handleRemoveArmazem(armazem.id)}
-                      disabled={checkArmazemProducts(armazem.id)}
-                    >
-                      Remover
-                    </Button>
-                  </td>
-                </tr>
-              ))}
+            {armazens.map((armazem) => (
+              <tr key={armazem.id}>
+                <td>{armazem.id}</td>
+                <td>{armazem.nome}</td>
+                <td>{armazem.tipoAnimal}</td>
+                <td>{armazem.situacao}</td>
+                <td>
+                  <Button
+                    className="Armazemsecondary"
+                    onClick={() => handleEditArmazem(armazem)}
+                  >
+                    Editar
+                  </Button>
+                  <Button
+                    className="Armazemdanger"
+                    onClick={() => handleRemoveArmazem(armazem.id)}
+                    disabled={checkArmazemProducts(armazem.id)}
+                  >
+                    Remover
+                  </Button>
+                </td>
+              </tr>
+            ))}
+            {armazemAtual && (
+              <tr>
+                <td>{armazemAtual.id}</td>
+                <td>{armazemAtual.nome}</td>
+                <td>{armazemAtual.tipoAnimal}</td>
+                <td>{armazemAtual.situacao}</td>
+                <td>
+                  <Button
+                    className="Armazemsecondary"
+                    onClick={handleCancelEdit}
+                  >
+                    Cancelar
+                  </Button>
+                  <Button
+                    className="Armazemsuccess"
+                    onClick={handleSaveArmazem}
+                  >
+                    Salvar
+                  </Button>
+                </td>
+              </tr>
+            )}
           </tbody>
         </table>
       </div>

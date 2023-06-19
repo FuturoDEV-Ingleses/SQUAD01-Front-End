@@ -23,7 +23,7 @@
   border: none;
 }
 
-.edits{    
+.edits {
   display: flex;
   gap: 10px;
 }
@@ -53,7 +53,6 @@
   cursor: pointer;
   border: none;
 }
-
 
 .estoque-list thead {
   background-color: #fafafa;
