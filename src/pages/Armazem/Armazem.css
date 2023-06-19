@@ -1,40 +1,113 @@
 .armazem-container {
-  margin-top: 45px;
+  margin: 20px;
+}
+
+h2 {
+  align-items: center;
+  margin-bottom: 25px;
+  font-family: Raleway;
+  font-size: 20px;
+}
+
+.sub-title {
+  margin-bottom: 25px;
+}
+
+form {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 40px;
+  font-family: Raleway;
 }
 
 .form-field {
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
+  margin-right: 15px;
 }
 
-.form-field label {
-  margin-right: 10px;
-  width: 80px;
+label {
+  font-weight: bold;
+  margin-right: 5px;
 }
 
-.form-field select {
-  flex: 1; /* Utiliza todo o espaço restante na linha */
+input[type="text"],
+select {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
 }
 
 .button-container {
-  margin-top: 20px;
-  padding: 10px 5px;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  width: fit-content;
-}
-
-.button-container .cadastrar-button {
-  padding: 10px 5px; /* Ajuste o espaçamento interno do botão conforme necessário */
-  width: fit-content; /* Define a largura com base no conteúdo do botão */
-  background-color: blue; /* Cor de fundo azul */
-  color: white; /* Texto em branco */
+  margin-top: 10px;
 }
 
 .button-container button {
-  padding: 10px 10px; /* Ajuste o espaçamento interno do botão conforme necessário */
+  margin-right: 10px;
+  margin-left: 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 35px;
+
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.button-container button:hover {
+  background-color: #0056b3;
+}
+
+.estoque-list {
+  margin-top: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 3px solid white;
+  padding: 8px;
+}
+
+th {
+  background-color: #f2f2f2;
+  text-align: left;
+  font-weight: bold;
+}
+
+.edits button {
+  margin-right: 5px;
+}
+
+.Armazemsuccess {
+  background-color: #4caf50;
+  color: white;
+}
+
+.Armazemsuccess:hover {
+  background-color: #45a049;
+}
+
+.danger {
+  background-color: #f44336;
+  color: white;
+}
+
+.danger:hover {
+  background-color: #d32f2f;
+}
+
+.Armazemsecondary {
+  background-color: #ccc;
+  color: black;
+}
+
+.Armazemsecondary:hover {
+  background-color: #999;
 }

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Container from "../../components/templates/Container/Container";
 import Cards from "../../components/organisms/Cards/Cards";
 import Card from "../../components/molecules/Card/Card";
+import "./Dashboard.css";
 
 export default function Dashboard() {
   const [filter, setFilter] = useState("all");
@@ -34,7 +35,7 @@ export default function Dashboard() {
       {data ? (
         <Cards data={data} filter={filter} setFilter={handleSetFilter}>
           {/* Cards para Cachorro Filhote */}
-          <section>
+          <section className="card-container">
             <h2>Cachorro Filhote</h2>
             <Card title="Kg de Ração" value={data.cachorroFilhote.kgRacao} />
             <Card
@@ -46,7 +47,7 @@ export default function Dashboard() {
           </section>
 
           {/* Cards para Cachorro Adulto */}
-          <section>
+          <section className="card-container">
             <h2>Cachorro Adulto</h2>
             <Card title="Kg de Ração" value={data.cachorroAdulto.kgRacao} />
             <Card
@@ -58,7 +59,7 @@ export default function Dashboard() {
           </section>
 
           {/* Cards para Gato Filhote */}
-          <section>
+          <section className="card-container">
             <h2>Gato Filhote</h2>
             <Card title="Kg de Ração" value={data.gatoFilhote.kgRacao} />
             <Card
@@ -70,7 +71,7 @@ export default function Dashboard() {
           </section>
 
           {/* Cards para Gato Adulto */}
-          <section>
+          <section className="card-container">
             <h2>Gato Adulto</h2>
             <Card title="Kg de Ração" value={data.gatoAdulto.kgRacao} />
             <Card
