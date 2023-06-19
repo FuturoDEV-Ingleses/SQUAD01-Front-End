@@ -103,33 +103,37 @@ export default function Armazem() {
       <div className="armazem-container">
         <h2 className="sub-title">Cadastro de Armazenamento</h2>
         <form>
-          <div className="form-field">
-            <label htmlFor="nome-input">Nome:</label>
-            <input
-              id="nome-input"
-              type="text"
-              value={nome}
-              onChange={(e) => setNome(e.target.value)}
-            />
-          </div>
+          <div className="form-row">
+            <div className="form-field">
+              <label htmlFor="nome-input">Nome:</label>
+              <input
+                id="nome-input"
+                type="text"
+                className="armazem-input"
+                value={nome}
+                onChange={(e) => setNome(e.target.value)}
+              />
+            </div>
 
-          <div className="form-field">
-            <label htmlFor="estoque-select">Estoque para:</label>
-            <select
-              id="estoque-select"
-              value={tipoAnimal}
-              onChange={(e) => setTipoAnimal(e.target.value)}
-            >
-              <option value="">Selecione...</option>
-              <option value="Gato">Gato</option>
-              <option value="Cachorro">Cachorro</option>
-            </select>
-          </div>
+            <div className="form-field">
+              <label htmlFor="estoque-select">Estoque para:</label>
+              <select
+                id="estoque-select"
+                className="armazem-input"
+                value={tipoAnimal}
+                onChange={(e) => setTipoAnimal(e.target.value)}
+              >
+                <option value="">Selecione...</option>
+                <option value="Gato">Gato</option>
+                <option value="Cachorro">Cachorro</option>
+              </select>
+            </div>
 
-          <div className="button-container">
-            <Button type="button" onClick={handleSaveArmazem}>
-              {editingId ? "Atualizar" : "Cadastrar"}
-            </Button>
+            <div className="form-field">
+              <Button type="button" onClick={handleSaveArmazem}>
+                {editingId ? "Atualizar" : "Cadastrar"}
+              </Button>
+            </div>
           </div>
         </form>
 
@@ -141,7 +145,7 @@ export default function Armazem() {
               <th>Nome</th>
               <th>Animal</th>
               <th>Situação</th>
-              <th>Ações</th> {/* Nova coluna para as ações */}
+              <th>Ações</th>
             </tr>
           </thead>
           <tbody>

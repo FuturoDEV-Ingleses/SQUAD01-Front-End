@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Container from "../../components/templates/Container/Container";
 import Cards from "../../components/organisms/Cards/Cards";
 import Card from "../../components/molecules/Card/Card";
-import "./Dashboard.css";
 
 export default function Dashboard() {
   const [filter, setFilter] = useState("all");

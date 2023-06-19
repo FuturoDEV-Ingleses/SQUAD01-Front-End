@@ -52,7 +52,7 @@ const Login = () => {
             <img src={imgDev} alt="imagem fundo" />
             <span>Seja bem vindo</span>
           </div>
-          <form onSubmit={handleSubmit}>
+          <form class="form-login" onSubmit={handleSubmit}>
             <Input type="email" placeholder="Email" name="email" />
             <Input type="password" placeholder="Senha" name="password" />
             <Button type="submit">Entrar</Button>
