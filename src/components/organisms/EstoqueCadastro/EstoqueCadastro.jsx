@@ -142,7 +142,7 @@ export default function EstoqueCadastro({
               setForm({
                 ...form,
                 animal: e.target.value,
-                armazenada: "", // Reset selected armazenada when animal changes
+                armazenada: "",
               });
             }}
           >

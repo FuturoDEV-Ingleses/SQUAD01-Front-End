@@ -1,4 +1,4 @@
-.armazem-container {
+/*.armazem-container {
   margin: 20px;
 }
 
@@ -24,7 +24,7 @@ h2 {
 
 label {
   font-weight: bold;
-  margin-right: 5px;
+  margin-right: 25px;
 }
 
 input[type="text"].armazem-input,
@@ -33,6 +33,7 @@ select.armazem-input {
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 14px;
+  padding: 9px 10px;
 }
 
 .button-container {
@@ -78,12 +79,12 @@ th {
 }
 
 .Armazemsuccess {
-  background-color: #4caf50;
+  background-color: #0d1cf5;
   color: white;
 }
 
 .Armazemsuccess:hover {
-  background-color: #45a049;
+  background-color: #0d1cf5;
 }
 
 .danger {
