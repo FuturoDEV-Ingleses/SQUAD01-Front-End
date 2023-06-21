@@ -42,7 +42,10 @@ export default function Dashboard() {
               value={data.cachorroFilhote.antiparasitaria}
             />
             <Card title="Antipulgas" value={data.cachorroFilhote.antipulgas} />
-            <Card title="Tipo Animal" value={data.cachorroFilhote.tipoAnimal} />
+            <Card
+              title="Total de Animais"
+              value={data.cachorroFilhote.totalAnimais}
+            />
           </section>
 
           {/* Cards para Cachorro Adulto */}
@@ -54,7 +57,10 @@ export default function Dashboard() {
               value={data.cachorroAdulto.antiparasitaria}
             />
             <Card title="Antipulgas" value={data.cachorroAdulto.antipulgas} />
-            <Card title="Tipo Animal" value={data.cachorroAdulto.tipoAnimal} />
+            <Card
+              title="Total de Animais"
+              value={data.cachorroAdulto.totalAnimais}
+            />
           </section>
 
           {/* Cards para Gato Filhote */}
@@ -66,7 +72,10 @@ export default function Dashboard() {
               value={data.gatoFilhote.antiparasitaria}
             />
             <Card title="Antipulgas" value={data.gatoFilhote.antipulgas} />
-            <Card title="Tipo Animal" value={data.gatoFilhote.tipoAnimal} />
+            <Card
+              title="Total de Animais"
+              value={data.gatoFilhote.totalAnimais}
+            />
           </section>
 
           {/* Cards para Gato Adulto */}
@@ -78,11 +87,14 @@ export default function Dashboard() {
               value={data.gatoAdulto.antiparasitaria}
             />
             <Card title="Antipulgas" value={data.gatoAdulto.antipulgas} />
-            <Card title="Tipo Animal" value={data.gatoAdulto.tipoAnimal} />
+            <Card
+              title="Total de Animais"
+              value={data.gatoAdulto.totalAnimais}
+            />
           </section>
         </Cards>
       ) : (
-        <p>Carregando...</p>
+        <p>Carregando dados do dashboard...</p>
       )}
     </Container>
   );

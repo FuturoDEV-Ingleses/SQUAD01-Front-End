@@ -1,13 +1,11 @@
 import React from "react";
 import "./Card.css";
 
-const Card = ({ title, value }) => {
+export default function Card({ title, value, clickable, ...props }) {
   return (
-    <div className="card">
-      <h3 className="card-title">{title}</h3>
-      <p className="card-value">{value}</p>
+    <div className={`card ${clickable && "clickable"}`} {...props}>
+      <h3>{title}</h3>
+      {value && <p>{value}</p>}
     </div>
   );
-};
-
-export default Card;
+}
