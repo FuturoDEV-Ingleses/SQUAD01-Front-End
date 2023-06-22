@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Card } from "../../index";
 import { getData } from "../../../utils";
+import cachorroAdultoImg from "../../../assets/cachorro_adulto.png";
+import cachorroFilhoteImg from "../../../assets/cachorro_filhote.png";
+import gatoAdultoImg from "../../../assets/gato_adulto.png";
+import gatoFilhoteImg from "../../../assets/gato_filhote.png";
 
 export default function Cards({ setFilter }) {
   const [estoque, setEstoque] = useState([]);
@@ -22,92 +26,119 @@ export default function Cards({ setFilter }) {
     setTotalAnimais(totalAnimais);
   };
 
-  const kgRacao = estoque
-    ?.filter((item) => item.categoria === "Ração")
-    .reduce((total, item) => total + item.quantidade, 0);
-  const antiparasitaria = estoque
-    ?.filter((item) => item.categoria === "Antiparasitária")
-    .reduce((total, item) => total + item.quantidade, 0);
-  const antipulgas = estoque
-    ?.filter((item) => item.categoria === "Antipulgas")
-    .reduce((total, item) => total + item.quantidade, 0);
-
-  const cachorroFilhotes = estoque
-    ?.filter(
-      (item) => item.animal === "Cachorro" && item.categoria === "Filhote"
-    )
-    .reduce((total, item) => total + item.quantidade, 0);
-  const cachorroAdulto = estoque
-    ?.filter(
-      (item) => item.animal === "Cachorro" && item.categoria === "Adulto"
-    )
-    .reduce((total, item) => total + item.quantidade, 0);
-
-  const gatoFilhotes = estoque
-    ?.filter((item) => item.animal === "Gato" && item.categoria === "Filhote")
-    .reduce((total, item) => total + item.quantidade, 0);
-  const gatoAdulto = estoque
-    ?.filter((item) => item.animal === "Gato" && item.categoria === "Adulto")
-    .reduce((total, item) => total + item.quantidade, 0);
+  const calcularQuantidade = (animal, categoria, cardId) => {
+    return estoque
+      ?.filter(
+        (item) =>
+          item.animal === animal &&
+          item.categoria === categoria &&
+          item.cardId === cardId
+      )
+      .reduce((total, item) => total + item.quantidade, 0);
+  };
 
   const cards = [
     {
-      id: "all",
-      title: "Kg de ração",
-      value: kgRacao,
+      id: "kgRacao",
+      title: "Kg de Ração",
       clickable: true,
     },
     {
       id: "antiparasitaria",
       title: "Antiparasitária",
-      value: antiparasitaria,
       clickable: true,
     },
     {
       id: "antipulgas",
       title: "Antipulgas",
-      value: antipulgas,
       clickable: true,
     },
     {
-      id: "cachorroFilhotes",
-      title: "Cachorro - Filhotes",
-      value: cachorroFilhotes,
-      clickable: true,
-    },
-    {
-      id: "cachorroAdulto",
-      title: "Cachorro - Adulto",
-      value: cachorroAdulto,
-      clickable: true,
-    },
-    {
-      id: "gatoFilhotes",
-      title: "Gato - Filhotes",
-      value: gatoFilhotes,
-      clickable: true,
-    },
-    {
-      id: "gatoAdulto",
-      title: "Gato - Adulto",
-      value: gatoAdulto,
+      id: "cachorro",
+      title: "Cachorro",
       clickable: true,
     },
   ];
 
+  const filtrarCardsCachorro = (categoria) => {
+    return cards.map((card, index) => (
+      <Card
+        key={index}
+        onClick={() => {
+          if (card.id === "") return;
+          setFilter(card.id);
+        }}
+        title={card.title}
+        value={calcularQuantidade("Cachorro", categoria, card.id)}
+        clickable={card.clickable}
+      />
+    ));
+  };
+
+  const filtrarCardsGato = (categoria) => {
+    return cards.map((card, index) => (
+      <Card
+        key={index}
+        onClick={() => {
+          if (card.id === "") return;
+          setFilter(card.id);
+        }}
+        title={card.title}
+        value={calcularQuantidade("Gato", categoria, card.id)}
+        clickable={card.clickable}
+      />
+    ));
+  };
+
   return (
-    <section style={{ display: "flex", justifyContent: "space-between" }}>
-      {cards.map((card) => (
-        <Card
-          key={card.id}
-          onClick={() => {
-            if (card.id === "mean") return;
-            setFilter(card.id);
-          }}
-          {...card}
+    <section>
+      <div style={{ display: "flex", alignItems: "center" }}>
+        <img
+          src={cachorroAdultoImg}
+          alt="Cachorro Adulto"
+          style={{ width: "30px", marginRight: "10px" }}
         />
-      ))}
-      <Card title="Total de Animais" value={totalAnimais} />
+        <h2 style={{ marginBottom: "0" }}>Adulto</h2>
+      </div>
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        {filtrarCardsCachorro("Adulto")}
+      </div>
+
+      <div style={{ display: "flex", alignItems: "center" }}>
+        <img
+          src={cachorroFilhoteImg}
+          alt="Cachorro Filhote"
+          style={{ width: "30px", marginRight: "10px" }}
+        />
+        <h2 style={{ marginBottom: "0" }}>Filhote</h2>
+      </div>
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        {filtrarCardsCachorro("Filhote")}
+      </div>
+
+      <div style={{ display: "flex", alignItems: "center" }}>
+        <img
+          src={gatoAdultoImg}
+          alt="Gato Adulto"
+          style={{ width: "10", marginRight: "10px" }}
+        />
+        <h2 style={{ marginBottom: "0" }}>Adulto</h2>
+      </div>
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        {filtrarCardsGato("Adulto")}
+      </div>
+
+      <div style={{ display: "flex", alignItems: "center" }}>
+        <img
+          src={gatoFilhoteImg}
+          alt="Gato Filhote"
+          style={{ width: "30px", marginRight: "10px" }}
+        />
+        <h2 style={{ marginBottom: "0" }}>Filhote</h2>
+      </div>
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        {filtrarCardsGato("Filhote")}
+      </div>
     </section>
   );
 }

@@ -3,7 +3,36 @@ import { useState, useEffect } from "react";
 import { getData } from "../../../utils";
 
 export default function EstoqueList({ setOpenForm, setSelectedEstoque }) {
-  const [estoque, setEstoque] = useState([]);
+  const [estoque, setEstoque] = useState([
+    {
+      id: 1,
+      armazenada: "Estoque 01",
+      produto: "Ração",
+      quantidade: "20KG",
+      categoria: "Adulto",
+    },
+    {
+      id: 2,
+      armazenada: "Estoque 02",
+      produto: "Antiparasitária",
+      quantidade: "4",
+      categoria: "Filhote",
+    },
+    {
+      id: 3,
+      armazenada: "Estoque 03",
+      produto: "Ração",
+      quantidade: "300KG",
+      categoria: "Adulto",
+    },
+    {
+      id: 4,
+      armazenada: "Estoque 04",
+      produto: "Antipulgas",
+      quantidade: "12",
+      categoria: "Filhote",
+    },
+  ]);
 
   useEffect(() => {
     fetchData();
@@ -18,16 +47,16 @@ export default function EstoqueList({ setOpenForm, setSelectedEstoque }) {
     await fetch(`http://localhost:3333/estoque/${id}`, {
       method: "DELETE",
     });
-    fetchData();
+    setEstoque((prevEstoque) => prevEstoque.filter((item) => item.id !== id));
   };
 
-  const handleEdit = (estoque) => {
-    setSelectedEstoque(estoque);
+  const handleEdit = (item) => {
+    setSelectedEstoque(item);
     setOpenForm(true);
   };
 
   const renderEstoqueItems = () => {
-    if (estoque.length === 0) {
+    if (!estoque || estoque.length === 0) {
       return (
         <tr>
           <td colSpan={6}>Nenhum produto encontrado.</td>
@@ -42,11 +71,17 @@ export default function EstoqueList({ setOpenForm, setSelectedEstoque }) {
         <td>{item.produto}</td>
         <td>{item.quantidade}</td>
         <td>{item.categoria}</td>
-        <td>
-          <button onClick={() => handleEdit(item)} className="secondary">
+        <td className="edits">
+          <button
+            onClick={() => handleEdit(item.id)}
+            className="edits secondary"
+          >
             Editar
           </button>
-          <button onClick={() => handleDelete(item.id)} className="danger">
+          <button
+            onClick={() => handleDelete(item.id)}
+            className="edits danger"
+          >
             Remover
           </button>
         </td>
@@ -70,52 +105,7 @@ export default function EstoqueList({ setOpenForm, setSelectedEstoque }) {
           </tr>
         </thead>
 
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Estoque 01</td>
-            <td>Ração</td>
-            <td>20KG</td>
-            <td>Adulto</td>
-            <td className="edits">
-              <button className="secondary">Editar</button>
-              <button className="danger">Remover</button>
-            </td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Estoque 02</td>
-            <td>Antiparasitária</td>
-            <td>4</td>
-            <td>Filhote</td>
-            <td className="edits">
-              <button className="secondary">Editar</button>
-              <button className="danger">Remover</button>
-            </td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Estoque 03</td>
-            <td>Ração</td>
-            <td>300KG</td>
-            <td>Adulto</td>
-            <td className="edits">
-              <button className="secondary">Editar</button>
-              <button className="danger">Remover</button>
-            </td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>Estoque 04</td>
-            <td>Antipulgas</td>
-            <td>12</td>
-            <td>Filhote</td>
-            <td className="edits">
-              <button className="secondary">Editar</button>
-              <button className="danger">Remover</button>
-            </td>
-          </tr>
-        </tbody>
+        <tbody>{renderEstoqueItems()}</tbody>
       </table>
     </section>
   );

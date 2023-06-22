@@ -21,8 +21,8 @@ export default function Armazem() {
   return (
     <div>
       <Container title="Armazem">
-        <ArmazemCadastro />
-        <ArmazemList list={armazens} />
+        <ArmazemCadastro fetchData={fetchData} />
+        <ArmazemList list={armazens} fetchData={fetchData} />
       </Container>
     </div>
   );

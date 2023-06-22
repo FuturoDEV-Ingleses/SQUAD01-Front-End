@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { postData } from "../../../utils/index";
 import "./ArmazemCadastro.css";
+import { Button, Input } from "../../index";
 
-export default function ArmazemCadastro() {
+export default function ArmazemCadastro({ fetchData }) {
   const [armazem, setArmazem] = useState({
     nome: "",
     tipo: "",
@@ -15,11 +17,25 @@ export default function ArmazemCadastro() {
     }));
   };
 
+  const handleCadastro = async () => {
+    try {
+      await postData("armazens", {
+        nome: armazem.nome,
+        tipo: armazem.tipo,
+        situacao: "Ativo",
+      });
+      setArmazem({ nome: "", tipo: "" });
+      fetchData();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div className="armazem-cadastro">
       <div className="form-row">
         <label htmlFor="armazemName">Nome:</label>
-        <input
+        <Input
           type="text"
           id="armazemName"
           name="nome"
@@ -39,11 +55,15 @@ export default function ArmazemCadastro() {
           onChange={handleChange}
         >
           <option value="">Selecione a opção</option>
-          <option value="1">Cachorro</option>
-          <option value="2">Gato</option>
+          <option value="Cachorro">Cachorro</option>
+          <option value="Gato">Gato</option>
         </select>
       </div>
-      <button className="cadastrar-button">Cadastrar</button>
+      <div className="button-row">
+        <Button className="cadastrar-buttonb" onClick={handleCadastro}>
+          Cadastrar
+        </Button>
+      </div>
     </div>
   );
 }
