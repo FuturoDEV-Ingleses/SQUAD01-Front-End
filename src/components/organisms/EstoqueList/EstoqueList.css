@@ -1,5 +1,6 @@
-.estoque-list {
-  max-width: 800px;
+.estoque-list{
+  max-width: 100%;
+    width: auto;
 }
 
 .estoque-list h2 {
@@ -23,9 +24,10 @@
   border: none;
 }
 
-.edits{    
+.edits {
   display: flex;
   gap: 10px;
+  justify-content: center;
 }
 
 .secondary {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "../../components";
-import { postData, getData, updateData, deleteData } from "../../utils";
+import { postData, getData, updateData, deleteData } from "../../service/api";
 import Container from "../../components/templates/Container/Container";
 
 import "./Armazem.css";
@@ -10,27 +10,28 @@ export default function Armazem() {
   const [nome, setNome] = useState("");
   const [tipoAnimal, setTipoAnimal] = useState("");
   const [editingId, setEditingId] = useState(null);
+  const [situacao, setSituacao] = useState("ativo");
+
 
   useEffect(() => {
     fetchData();
   }, []);
 
   const fetchData = async () => {
-    const data = await getData("armazens");
-    setArmazens(data || []); // Verificação para garantir que seja uma matriz válida
+    const data = await getData("armazem");
+    setArmazens(data || []);
   };
 
   const handleAddArmazem = async (event) => {
     event.preventDefault();
 
     const newArmazem = {
-      id: generateId(),
       nome,
-      tipoAnimal,
+      animal: tipoAnimal,
       situacao: "ativo",
     };
 
-    await postData("armazens", newArmazem);
+    await postData("armazem", newArmazem);
     fetchData();
     resetForm();
   };
@@ -38,17 +39,17 @@ export default function Armazem() {
   const handleEditArmazem = async (armazem) => {
     setEditingId(armazem.id);
     setNome(armazem.nome);
-    setTipoAnimal(armazem.tipoAnimal);
+    setTipoAnimal(armazem.animal);
   };
 
   const handleUpdateArmazem = async () => {
     const updatedArmazem = {
       id: editingId,
       nome,
-      tipoAnimal,
+      animal: tipoAnimal,
     };
 
-    await updateData("armazens", editingId, updatedArmazem);
+    await updateData("armazem", editingId, updatedArmazem);
     fetchData();
     resetForm();
   };
@@ -60,7 +61,7 @@ export default function Armazem() {
       const hasProducts = checkArmazemProducts(id);
 
       if (!hasProducts) {
-        await deleteData("armazens", id);
+        await deleteData("armazem", id);
         fetchData();
       }
     }
@@ -76,11 +77,6 @@ export default function Armazem() {
     setEditingId(null);
     setNome("");
     setTipoAnimal("");
-  };
-
-  const generateId = () => {
-    // Lógica para gerar um ID único para o armazém
-    return Math.random().toString(36).substr(2, 9);
   };
 
   return (
@@ -123,40 +119,47 @@ export default function Armazem() {
           </div>
         </form>
 
-        <h2>Locais de Armazenamento Cadastrados</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Nome</th>
-              <th>Animal</th>
-              <th>Situação</th>
-              <th>Ações</th>
-            </tr>
-          </thead>
-          <tbody>
-            {armazens &&
-              armazens.map((armazem) => (
+        <section className="estoque-list">
+          <h2 className="sub-title">Locais de Armazenamento Cadastrados</h2>
+
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Animal</th>
+                <th>Situação</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {armazens.map((armazem) => (
                 <tr key={armazem.id}>
                   <td>{armazem.id}</td>
                   <td>{armazem.nome}</td>
-                  <td>{armazem.tipoAnimal}</td>
+                  <td>{armazem.animal}</td>
                   <td>{armazem.situacao}</td>
-                  <td>
-                    <Button onClick={() => handleEditArmazem(armazem)}>
+                  <td className="edits">
+                    <button
+                      className="secondary"
+                      onClick={() => handleEditArmazem(armazem)}
+                    >
                       Editar
-                    </Button>
-                    <Button
+                    </button>
+                    <button
+                      className="danger"
                       onClick={() => handleRemoveArmazem(armazem.id)}
                       disabled={checkArmazemProducts(armazem.id)}
                     >
                       Remover
-                    </Button>
+                    </button>
                   </td>
                 </tr>
               ))}
-          </tbody>
-        </table>
+            </tbody>
+          </table>
+        </section>
       </div>
     </Container>
   );

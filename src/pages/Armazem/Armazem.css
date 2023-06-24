@@ -38,3 +38,14 @@
 .button-container button {
   padding: 10px 10px; /* Ajuste o espaçamento interno do botão conforme necessário */
 }
+
+.estoque-list{
+  max-width: 100%;
+    width: auto;
+}
+
+.edits {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}

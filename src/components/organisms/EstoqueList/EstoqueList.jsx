@@ -82,39 +82,6 @@ export default function EstoqueList({ setOpenForm, setSelectedEstoque }) {
               <button className="danger">Remover</button>
             </td>
           </tr>
-          <tr>
-            <td>2</td>
-            <td>Estoque 02</td>
-            <td>Antiparasitária</td>
-            <td>4</td>
-            <td>Filhote</td>
-            <td className="edits">
-              <button className="secondary">Editar</button>
-              <button className="danger">Remover</button>
-            </td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Estoque 03</td>
-            <td>Ração</td>
-            <td>300KG</td>
-            <td>Adulto</td>
-            <td className="edits">
-              <button className="secondary">Editar</button>
-              <button className="danger">Remover</button>
-            </td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>Estoque 04</td>
-            <td>Antipulgas</td>
-            <td>12</td>
-            <td>Filhote</td>
-            <td className="edits">
-              <button className="secondary">Editar</button>
-              <button className="danger">Remover</button>
-            </td>
-          </tr>
         </tbody>
       </table>
     </section>
