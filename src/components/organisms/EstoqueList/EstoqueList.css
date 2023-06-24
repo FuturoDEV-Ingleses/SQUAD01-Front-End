@@ -30,19 +30,7 @@
   justify-content: center;
 }
 
-.secondary {
-  display: flex;
-  align-items: center;
-  height: 40px;
-  padding: 8px 16px;
-  font-size: 16px;
-  color: #fbfcff;
-  background: #28ab63;
-  border-radius: 4px;
-  cursor: pointer;
-  border: none;
-}
-
+.secondary,
 .danger {
   display: flex;
   align-items: center;
@@ -50,12 +38,18 @@
   padding: 8px 16px;
   font-size: 16px;
   color: #fbfcff;
-  background: #d82d56;
   border-radius: 4px;
   cursor: pointer;
   border: none;
 }
 
+.secondary {
+  background: #28ab63;
+}
+
+.danger {
+  background: #d82d56;
+}
 
 .estoque-list thead {
   background-color: #fafafa;
@@ -76,7 +70,8 @@
   white-space: nowrap;
 }
 
-.estoque-list .edit-button {
+.estoque-list .edit-button,
+.estoque-list .remove-button {
   background-color: #28a745;
   color: #fff;
   padding: 3px 10px;
@@ -89,6 +84,87 @@
 
 .estoque-list .remove-button {
   background-color: #dc3545;
+  margin-left: 5px;
+}
+
+.estoque-list .edit-button:hover,
+.estoque-list .remove-button:hover {
+  opacity: 0.8;
+}
+
+.estoque-list {
+  max-width: 800px;
+}
+
+.estoque-list h2 {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+.estoque-list table {
+  margin: 50px auto;
+  border-collapse: collapse;
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 12px 26px #101e730f;
+  font-family: Raleway;
+}
+
+.estoque-list table th,
+.estoque-list table td {
+  padding: 10px;
+  text-align: center;
+  border: none;
+}
+
+.edits {
+  display: flex;
+  gap: 10px;
+}
+
+.secondary,
+.danger {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding: 8px 16px;
+  font-size: 16px;
+  color: #fbfcff;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+}
+
+.secondary {
+  background: #28ab63;
+}
+
+.danger {
+  background: #d82d56;
+}
+
+.estoque-list thead {
+  background-color: #fafafa;
+  color: #25282b;
+  height: 55px;
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.estoque-list table th {
+  font-weight: bold;
+}
+
+.estoque-list table td:last-child {
+  white-space: nowrap;
+}
+
+.estoque-list .edit-button,
+.estoque-list .remove-button {
+  background-color: #28a745;
   color: #fff;
   padding: 3px 10px;
   border: none;
@@ -96,6 +172,10 @@
   font-size: 14px;
   cursor: pointer;
   width: 80px;
+}
+
+.estoque-list .remove-button {
+  background-color: #dc3545;
   margin-left: 5px;
 }
 

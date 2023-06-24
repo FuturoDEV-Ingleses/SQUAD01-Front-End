@@ -1,3 +1,4 @@
+// Cadastro.jsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../../components/atoms/Button/Button";
@@ -52,7 +53,7 @@ const Cadastro = () => {
             <img src={imgDev} alt="imagem fundo" />
             <span>Cadastro</span>
           </div>
-          <form onSubmit={handleSubmit}>
+          <form className="form-cadastro" onSubmit={handleSubmit}>
             <Input type="text" placeholder="Nome" name="nome" />
             <Input type="email" placeholder="Email" name="email" />
             <Input type="password" placeholder="Senha" name="senha" />

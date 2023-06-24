@@ -15,6 +15,11 @@ const Login = () => {
     event.preventDefault();
     const { email, password } = event.target.elements;
 
+    if (!email.value || !password.value) {
+      setErrorMessage("Por favor, preencha todos os campos.");
+      return;
+    }
+
     try {
       const response = await fetch("/api/login", {
         method: "POST",
@@ -52,7 +57,7 @@ const Login = () => {
             <img src={imgDev} alt="imagem fundo" />
             <span>Seja bem vindo</span>
           </div>
-          <form onSubmit={handleSubmit}>
+          <form className="form-login" onSubmit={handleSubmit}>
             <Input type="email" placeholder="Email" name="email" />
             <Input type="password" placeholder="Senha" name="password" />
             <Button type="submit">Entrar</Button>

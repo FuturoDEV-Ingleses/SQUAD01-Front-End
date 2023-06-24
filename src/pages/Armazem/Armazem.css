@@ -1,42 +1,60 @@
-.armazem-container {
-  margin-top: 45px;
-  display: flex;
-  flex-direction: column;
+.armazem-cadastro-container {
+  margin: 20px;
 }
 
-.form-field {
-  margin-bottom: 10px;
+.armazem-cadastro h2 {
+  align-items: center;
+  margin-bottom: 25px;
+  font-family: Raleway;
+  font-size: 20px;
+}
+
+.armazem-cadastro .sub-title {
+  margin-bottom: 25px;
+}
+
+.armazem-cadastro .form-row {
   display: flex;
   align-items: center;
 }
 
-.form-field label {
+.armazem-cadastro .form-field {
+  margin-right: 15px;
+}
+
+.armazem-cadastro label {
+  font-weight: bold;
+  margin-right: 25px;
+}
+
+.armazem-cadastro input[type="text"].armazem-input,
+.armazem-cadastro select.armazem-input {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  padding: 9px 10px;
+}
+
+.armazem-cadastro .button-container {
+  display: flex;
+  margin-top: 10px;
+}
+
+.armazem-cadastro .button-container button {
   margin-right: 10px;
-  width: 80px;
+  margin-left: 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 15px;
+  font-size: 14px;
+  cursor: pointer;
 }
 
-.form-field select {
-  flex: 1; /* Utiliza todo o espaço restante na linha */
-}
-
-.button-container {
-  margin-top: 20px;
-  padding: 10px 5px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  width: fit-content;
-}
-
-.button-container .cadastrar-button {
-  padding: 10px 5px; /* Ajuste o espaçamento interno do botão conforme necessário */
-  width: fit-content; /* Define a largura com base no conteúdo do botão */
-  background-color: blue; /* Cor de fundo azul */
-  color: white; /* Texto em branco */
-}
-
-.button-container button {
-  padding: 10px 10px; /* Ajuste o espaçamento interno do botão conforme necessário */
+.armazem-cadastro .button-container button:hover {
+  background-color: #0056b3;
 }
 
 .estoque-list{

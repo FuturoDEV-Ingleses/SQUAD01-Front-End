@@ -6,3 +6,5 @@ export { default as EstoqueList } from "./organisms/EstoqueList/EstoqueList";
 export { default as EstoqueCadastro } from "./organisms/EstoqueCadastro/EstoqueCadastro";
 export { default as Cards } from "./organisms/Cards/Cards";
 export { default as Container } from "./templates/Container/Container";
+export { default as ArmazemCadastro } from "./organisms/ArmazemCadastro/ArmazemCadastro";
+export { default as ArmazemList } from "./organisms/ArmazemList/ArmazemList";

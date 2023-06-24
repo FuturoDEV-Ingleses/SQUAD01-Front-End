@@ -63,6 +63,21 @@ body {
   object-fit: cover;
 }
 
+.form-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.form-header span {
+  font-size: 20px;
+}
+
+.form-login {
+  margin-top: 20px;
+}
+
 .custom-input {
   width: 100%;
   padding: 20px;

@@ -21,7 +21,7 @@ export default function Estoque() {
             setOpenForm={setOpenForm}
             setSelectedEstoque={setSelectedEstoque}
           />
-          <button onClick={handleOpenForm} className="add-product-button">
+          <button onClick={handleOpenForm} className="add-product-buttonb">
             Cadastrar
           </button>
         </>
