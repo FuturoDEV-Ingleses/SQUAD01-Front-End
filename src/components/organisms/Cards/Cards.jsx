@@ -5,6 +5,7 @@ import cachorroAdultoImg from "../../../assets/cachorro_adulto.png";
 import cachorroFilhoteImg from "../../../assets/cachorro_filhote.png";
 import gatoAdultoImg from "../../../assets/gato_adulto.png";
 import gatoFilhoteImg from "../../../assets/gato_filhote.png";
+import editIcon from "../../../assets/edit.png";
 
 export default function Cards({ setFilter }) {
   const [estoque, setEstoque] = useState([]);
@@ -37,6 +38,12 @@ export default function Cards({ setFilter }) {
       .reduce((total, item) => total + item.quantidade, 0);
   };
 
+  const calcularTotalClasse = (animal, categoria) => {
+    return cards
+      .map((card) => calcularQuantidade(animal, categoria, card.id))
+      .reduce((total, quantidade) => total + quantidade, 0);
+  };
+
   const cards = [
     {
       id: "kgRacao",
@@ -54,40 +61,80 @@ export default function Cards({ setFilter }) {
       clickable: true,
     },
     {
-      id: "cachorro",
-      title: "Cachorro",
+      id: "totalClasse",
+      title: "Total",
       clickable: true,
     },
   ];
 
   const filtrarCardsCachorro = (categoria) => {
-    return cards.map((card, index) => (
-      <Card
-        key={index}
-        onClick={() => {
-          if (card.id === "") return;
-          setFilter(card.id);
-        }}
-        title={card.title}
-        value={calcularQuantidade("Cachorro", categoria, card.id)}
-        clickable={card.clickable}
-      />
-    ));
+    const cardsCachorro = cards.map((card, index) => {
+      if (card.id === "totalClasse") {
+        return (
+          <Card
+            key={index}
+            title={card.title}
+            value={calcularTotalClasse("Cachorro", categoria)}
+            clickable={card.clickable}
+            icon={editIcon} // Ícone de configuração ou lápis
+            onClick={() => handleEdit("Cachorro", categoria)} // Função para tratar a edição
+          />
+        );
+      }
+
+      return (
+        <Card
+          key={index}
+          onClick={() => {
+            if (card.id === "") return;
+            setFilter(card.id);
+          }}
+          title={card.title}
+          value={calcularQuantidade("Cachorro", categoria, card.id)}
+          clickable={card.clickable}
+        />
+      );
+    });
+
+    return cardsCachorro;
   };
 
   const filtrarCardsGato = (categoria) => {
-    return cards.map((card, index) => (
-      <Card
-        key={index}
-        onClick={() => {
-          if (card.id === "") return;
-          setFilter(card.id);
-        }}
-        title={card.title}
-        value={calcularQuantidade("Gato", categoria, card.id)}
-        clickable={card.clickable}
-      />
-    ));
+    const cardsGato = cards.map((card, index) => {
+      if (card.id === "totalClasse") {
+        return (
+          <Card
+            key={index}
+            title={card.title}
+            value={calcularTotalClasse("Gato", categoria)}
+            clickable={card.clickable}
+            icon={editIcon} // Ícone de configuração ou lápis
+            onClick={() => handleEdit("Gato", categoria)} // Função para tratar a edição
+          />
+        );
+      }
+
+      return (
+        <Card
+          key={index}
+          onClick={() => {
+            if (card.id === "") return;
+            setFilter(card.id);
+          }}
+          title={card.title}
+          value={calcularQuantidade("Gato", categoria, card.id)}
+          clickable={card.clickable}
+        />
+      );
+    });
+
+    return cardsGato;
+  };
+
+  const handleEdit = (animal, categoria) => {
+    // Função para tratar a edição do último card
+    // por exemplo, exibindo um formulário de edição ou redirecionando para uma página de edição
+    console.log(`Editar ${animal} ${categoria}`);
   };
 
   return (
@@ -120,7 +167,7 @@ export default function Cards({ setFilter }) {
         <img
           src={gatoAdultoImg}
           alt="Gato Adulto"
-          style={{ width: "10", marginRight: "10px" }}
+          style={{ width: "30", marginRight: "10px" }}
         />
         <h2 style={{ marginBottom: "0" }}>Adulto</h2>
       </div>
