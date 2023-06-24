@@ -2,12 +2,12 @@ import { useState, useEffect } from "react";
 import { getData } from "../../../utils";
 import "./ArmazemList.css";
 
-export default function ArmazemList({ setOpenForm, setSelectedArmazem }) {
+export default function ArmazemList({ list, setOpenForm, setSelectedArmazem }) {
   const [armazem, setArmazem] = useState([]);
 
   useEffect(() => {
-    fetchData();
-  }, []);
+    setArmazem(list);
+  }, [list]);
 
   const fetchData = async () => {
     const data = await getData("armazem");
@@ -30,7 +30,7 @@ export default function ArmazemList({ setOpenForm, setSelectedArmazem }) {
     if (armazem.length === 0) {
       return (
         <tr>
-          <td colSpan={6}>Nenhum produto encontrado.</td>
+          <td colSpan={4}>Nenhum produto encontrado.</td>
         </tr>
       );
     }
@@ -41,11 +41,11 @@ export default function ArmazemList({ setOpenForm, setSelectedArmazem }) {
         <td>{item.nome}</td>
         <td>{item.animal}</td>
         <td>{item.situacao}</td>
-        <td>
-          <button onClick={() => handleEdit(item)} className="secondaryb">
+        <td className="edits">
+          <button onClick={() => handleEdit(item)} className="secondary">
             Editar
           </button>
-          <button onClick={() => handleDelete(item.id)} className="dangerc">
+          <button onClick={() => handleDelete(item.id)} className="danger">
             Remover
           </button>
         </td>
@@ -68,48 +68,7 @@ export default function ArmazemList({ setOpenForm, setSelectedArmazem }) {
           </tr>
         </thead>
 
-        <tbody>
-          <tr>
-            <td>001</td>
-            <td>Estoque 01</td>
-            <td>Cachorro</td>
-            <td>Ativo</td>
-            <td className="editsArmazem">
-              <button className="secondaryb">Editar</button>
-              <button className="dangerc">Remover</button>
-            </td>
-          </tr>
-          <tr>
-            <td>002</td>
-            <td>Estoque 02</td>
-            <td>Gato</td>
-            <td>Desativado</td>
-            <td className="edits">
-              <button className="secondaryb">Editar</button>
-              <button className="dangerc">Remover</button>
-            </td>
-          </tr>
-          <tr>
-            <td>003</td>
-            <td>Estoque 03</td>
-            <td>Cachorro</td>
-            <td>Ativo</td>
-            <td className="editsarmazens">
-              <button className="secondaryb">Editar</button>
-              <button className="dangerc">Remover</button>
-            </td>
-          </tr>
-          <tr>
-            <td>004</td>
-            <td>Estoque 04</td>
-            <td>Gato</td>
-            <td>Ativo</td>
-            <td className="editsbutton">
-              <button className="secondaryb">Editar</button>
-              <button className="dangerc">Remover</button>
-            </td>
-          </tr>
-        </tbody>
+        <tbody>{renderArmazemItems()}</tbody>
       </table>
     </section>
   );

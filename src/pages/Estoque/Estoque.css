@@ -1,21 +1,21 @@
-.add-product-button {
-    font-family: "system-ui";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 27px;
-    padding: 16px 24px;
-    gap: 24px;
-    width: 150px;
-    height: 59px;
-    color: #fff;
-    background: #4c5df1;
-    box-shadow: 0 20px 50px #3745571a;
-    border-radius: 20px;
-    border: none;   
+.add-product-buttonb {
+  font-family: "system-ui";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
+  padding: 16px 24px;
+  gap: 24px;
+  width: 150px;
+  height: 59px;
+  color: #fff;
+  background: #4c5df1;
+  box-shadow: 0 20px 50px #3745571a;
+  border-radius: 20px;
+  border: none;
 }
 
-.add-product-button:hover{
-    cursor: pointer;
-    background: #384bf8;
+.add-product-buttonb:hover {
+  cursor: pointer;
+  background: #384bf8;
 }
