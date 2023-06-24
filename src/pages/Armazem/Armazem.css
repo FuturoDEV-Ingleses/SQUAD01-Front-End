@@ -67,3 +67,50 @@
   gap: 10px;
   justify-content: center;
 }
+
+.form-field{
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.add-product-buttonb {
+  font-family: "system-ui";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
+  padding: 16px 24px;
+  gap: 24px;
+  width: 150px;
+  height: 59px;
+  color: #fff;
+  background: #4c5df1;
+  box-shadow: 0 20px 50px #3745571a;
+  border-radius: 20px;
+  border: none;
+}
+
+.display-col{
+  display: flex;
+  flex-direction: column;
+}
+
+.campos {
+  padding: 10px;
+  font-family: system-ui;
+  font-size: 15px;
+  width: 100%;
+  border-radius: 10px;
+  color: black;
+  background-color: transparent;
+  border: 1px solid;
+  border-color: rgb(58, 57, 57);
+}
+
+label{
+  font-family: system-ui;
+  font-size: 18px;
+  padding: 10px;
+}

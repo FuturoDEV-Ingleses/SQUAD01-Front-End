@@ -40,6 +40,7 @@ export default function Armazem() {
     setEditingId(armazem.id);
     setNome(armazem.nome);
     setTipoAnimal(armazem.animal);
+    setSituacao(armazem.situacao);
   };
 
   const handleUpdateArmazem = async () => {
@@ -47,6 +48,7 @@ export default function Armazem() {
       id: editingId,
       nome,
       animal: tipoAnimal,
+      situacao: situacao
     };
 
     await updateData("armazem", editingId, updatedArmazem);
@@ -83,28 +85,24 @@ export default function Armazem() {
     <Container title="Armazém">
       <div className="armazem-container">
         <h2 className="sub-title">Cadastro de Armazenamento</h2>
-        <form onSubmit={editingId ? handleUpdateArmazem : handleAddArmazem}>
-          <div className="form-field">
-            <label htmlFor="nome-input">Nome:</label>
-            <select
+        <form className="form-field" onSubmit={editingId ? handleUpdateArmazem : handleAddArmazem}>
+          <div className="display-col">
+            <label htmlFor="nome-input">Nome</label>
+            <input
+            className="campos"
               id="nome-input"
               value={nome}
-              onChange={(e) => setNome(e.target.value)}
-            >
-              <option value="">Selecione...</option>
-              <option value="Estoque 01">Estoque 01</option>
-              <option value="Estoque 02">Estoque 02</option>
-              <option value="Estoque 03">Estoque 03</option>
-              <option value="Estoque 04">Estoque 04</option>
-            </select>
+              onChange={(e) => setNome(e.target.value)} required
+            />
           </div>
 
-          <div className="form-field">
-            <label htmlFor="estoque-select">Estoque para:</label>
-            <select
+          <div className="display-col">
+            <label htmlFor="estoque-select">Estoque para</label>
+            <select 
+              className="campos"
               id="estoque-select"
               value={tipoAnimal}
-              onChange={(e) => setTipoAnimal(e.target.value)}
+              onChange={(e) => setTipoAnimal(e.target.value)} required
             >
               <option value="">Selecione...</option>
               <option value="Gato">Gato</option>
@@ -112,11 +110,33 @@ export default function Armazem() {
             </select>
           </div>
 
-          <div className="button-container">
-            <Button type="submit">
-              {editingId ? "Atualizar" : "Cadastrar"}
-            </Button>
+          {editingId ? 
+          
+          <div className="display-col">
+            <label htmlFor="estoque-select">Situação</label>
+            <select 
+              className="campos"
+              id="estoque-select"
+              value={situacao}
+              onChange={(e) => setSituacao(e.target.value)} required
+            >
+              <option value="">Selecione...</option>
+              <option value="Ativo">Ativo</option>
+              <option value="Desativado">Desativado</option>
+            </select>
           </div>
+
+          : 
+          
+          ""}
+
+          <div>
+            <button className="add-product-buttonb " type="submit">
+              {editingId ? "Atualizar" : "Cadastrar"}
+            </button>
+          </div>
+
+
         </form>
 
         <section className="estoque-list">
