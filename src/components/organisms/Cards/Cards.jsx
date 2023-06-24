@@ -10,6 +10,8 @@ import editIcon from "../../../assets/edit.png";
 export default function Cards({ setFilter }) {
   const [estoque, setEstoque] = useState([]);
   const [totalAnimais, setTotalAnimais] = useState(0);
+  const [isEditing, setIsEditing] = useState(false);
+  const [editingCard, setEditingCard] = useState(null);
 
   useEffect(() => {
     fetchData();
@@ -22,8 +24,8 @@ export default function Cards({ setFilter }) {
   };
 
   const fetchTotalAnimais = () => {
-    // Lógica para buscar o total de animais no backend
-    const totalAnimais = 10; // Exemplo: Total de animais é 10
+    // buscar o total de animais no backend
+    const totalAnimais = 10;
     setTotalAnimais(totalAnimais);
   };
 
@@ -76,8 +78,8 @@ export default function Cards({ setFilter }) {
             title={card.title}
             value={calcularTotalClasse("Cachorro", categoria)}
             clickable={card.clickable}
-            icon={editIcon} // Ícone de configuração ou lápis
-            onClick={() => handleEdit("Cachorro", categoria)} // Função para tratar a edição
+            icon={editIcon}
+            onClick={() => handleEdit("Cachorro", categoria)}
           />
         );
       }
@@ -108,8 +110,8 @@ export default function Cards({ setFilter }) {
             title={card.title}
             value={calcularTotalClasse("Gato", categoria)}
             clickable={card.clickable}
-            icon={editIcon} // Ícone de configuração ou lápis
-            onClick={() => handleEdit("Gato", categoria)} // Função para tratar a edição
+            icon={editIcon}
+            onClick={() => handleEdit("Gato", categoria)}
           />
         );
       }
@@ -132,10 +134,25 @@ export default function Cards({ setFilter }) {
   };
 
   const handleEdit = (animal, categoria) => {
-    // Função para tratar a edição do último card
-    // por exemplo, exibindo um formulário de edição ou redirecionando para uma página de edição
-    console.log(`Editar ${animal} ${categoria}`);
+    setIsEditing(true);
+    setEditingCard({ animal, categoria });
   };
+
+  const handleSave = () => {
+    // salvar as alterações do card no backend
+
+    setIsEditing(false);
+    setEditingCard(null);
+  };
+
+  if (isEditing) {
+    return (
+      <div>
+        {/* Renderize o formulário de edição aqui */}
+        <button onClick={handleSave}>Salvar</button>
+      </div>
+    );
+  }
 
   return (
     <section>
