@@ -56,3 +56,14 @@
 .armazem-cadastro .button-container button:hover {
   background-color: #0056b3;
 }
+
+.estoque-list{
+  max-width: 100%;
+    width: auto;
+}
+
+.edits {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
