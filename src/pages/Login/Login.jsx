@@ -5,6 +5,7 @@ import Input from "../../../src/components/atoms/Input/Input";
 import imgLogin from "../../assets/teste.png";
 import imgDev from "../../assets/logodev.svg";
 import { Link } from "react-router-dom";
+import { postData } from "../../service/api";
 import "./Login.css";
 
 const Login = () => {
@@ -14,37 +15,31 @@ const Login = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const { email, password } = event.target.elements;
-
+  
     if (!email.value || !password.value) {
       setErrorMessage("Por favor, preencha todos os campos.");
       return;
     }
-
+  
     try {
-      const response = await fetch("/api/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: email.value,
-          password: password.value,
-        }),
+      const response = await postData("api/login", {
+        email: email.value,
+        senha: password.value,
       });
-
-      if (response.ok) {
+  
+      if (response) {
         // Autenticação bem-sucedida, redirecionar para a página "/dashboard"
         navigate("/dashboard");
       } else {
         // Autenticação falhou, exibir mensagem de erro
-        const errorData = await response.json();
-        setErrorMessage(errorData.message);
+        setErrorMessage("Email ou senha inválidos.");
       }
     } catch (error) {
       console.error("Erro ao processar a solicitação:", error);
       setErrorMessage("Ocorreu um erro ao processar a solicitação.");
     }
   };
+  
 
   return (
     <div className="login-container">
@@ -58,9 +53,9 @@ const Login = () => {
             <span>Seja bem vindo</span>
           </div>
           <form className="form-login" onSubmit={handleSubmit}>
-            <Input type="email" placeholder="Email" name="email" />
-            <Input type="password" placeholder="Senha" name="password" />
-            <Button type="submit">Entrar</Button>
+            <input className="custom-input" type="email" placeholder="Email" name="email" />
+            <input className="custom-input" type="password" placeholder="Senha" name="password" />
+            <button className="custom-button" type="submit">Entrar</button>
           </form>
           {errorMessage && (
             <p className="error-message" style={{ color: "red" }}>
