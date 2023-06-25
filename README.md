@@ -9,17 +9,13 @@
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/Patynet/ProjetoDevPraia/blob/develop/LICENCE)
 __________
 
+## ROTEIRO DA APLICAÇÃO
+
 ## REQUISITOS
 
 Neste projeto, será necessário dividir o sistema em dois: um projeto para o front-end e outro para o back-end.
 
 O projeto front-end será feito em React, tendo os seguintes requisitos: React, regras de negócio centralizadas na API (não manter as regras de negócio na aplicação front-end).
-
-## ROTEIRO DA APLICAÇÃO
-
-## Resumo do Projeto
-
-O projeto DEVin-Adotion visa desenvolver um aplicativo de controle de estoque de materiais para ONGs. A aplicação se divide em um projeto de front-end e outro de back-end. O front-end será feito em React, enquanto o back-end será construído com Spring (Java) e o banco de dados PostgreSQL será utilizado.
 
 ## Requisitos Gerais
 
