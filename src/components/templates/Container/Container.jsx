@@ -1,16 +1,23 @@
-import "./Container.css"
-import { Navbar } from "../../index"
+import React from "react";
+import PropTypes from "prop-types";
+import { Navbar } from "../../index";
+import "./Container.css";
 
-export default function Container({ children, title }) {
-    return (
-        <div className="Container">
-            <Navbar />
+const Container = ({ children, title }) => {
+  return (
+    <div className="container">
+      <Navbar />
+      <header>
+        <h1 className="container-title">{title}</h1>
+      </header>
+      <main>{children}</main>
+    </div>
+  );
+};
 
-            <header>
-                <h1 className="title">{title}</h1>
-            </header>
+Container.propTypes = {
+  children: PropTypes.node.isRequired,
+  title: PropTypes.string.isRequired,
+};
 
-            <main>{children}</main>
-        </div>
-    )
-}
+export default Container;
