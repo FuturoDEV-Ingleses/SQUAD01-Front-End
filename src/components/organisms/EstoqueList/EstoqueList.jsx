@@ -15,7 +15,7 @@ export default function EstoqueList({ setOpenForm, setSelectedEstoque }) {
   };
 
   const handleDelete = async (id) => {
-    await fetch(`http://localhost:3333/estoque/${id}`, {
+    await fetch(`http://localhost:8080/estoque/${id}`, {
       method: "DELETE",
     });
     fetchData();
