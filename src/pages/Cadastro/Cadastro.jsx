@@ -1,63 +1,41 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../../components/atoms/Button/Button";
-import Input from "../../../src/components/atoms/Input/Input";
+import Input from "../../components/atoms/Input/Input";
 import imgLogin from "../../assets/cadastro2.jpeg";
 import imgDev from "../../assets/logodev.svg";
+import { cadastrarUsuario } from "../../service/api";
 import "./Cadastro.css";
 
 const Cadastro = () => {
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState("");
-  const [isEmailAlreadyRegistered, setIsEmailAlreadyRegistered] =
-    useState(false);
+  const [nome, setNome] = useState("");
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const { nome, email, senha } = event.target.elements;
+
+    const usuario = {
+      nome,
+      email,
+      senha,
+    };
 
     try {
-      // e-mail já está cadastrado
-      const checkEmailResponse = await fetch(
-        `/api/verificar-email?email=${email.value}`
-      );
+      const response = await cadastrarUsuario(usuario);
 
-      if (checkEmailResponse.ok) {
-        const { isEmailRegistered } = await checkEmailResponse.json();
-        if (isEmailRegistered) {
-          setIsEmailAlreadyRegistered(true);
-          return;
-        }
+      if (response.success) {
+        navigate("/login");
       } else {
-        console.error("Erro ao verificar o e-mail:", checkEmailResponse.status);
-      }
-
-      const response = await fetch("/api/cadastro", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          nome: nome.value,
-          email: email.value,
-          senha: senha.value,
-        }),
-      });
-
-      if (response.ok) {
-        if (!isEmailAlreadyRegistered) {
-          //redirecionar para a página de login
-          navigate("/login");
-        }
-      } else {
-        // Cadastro falhou, exibir mensagem de erro
-        const errorData = await response.json();
-        setErrorMessage(errorData.message);
+        setErrorMessage(response.error);
       }
     } catch (error) {
       console.error("Erro ao processar a solicitação:", error);
       setErrorMessage("Ocorreu um erro ao processar a solicitação.");
     }
+    console.log(usuario)
   };
 
   return (
@@ -72,10 +50,30 @@ const Cadastro = () => {
             <span>Cadastro</span>
           </div>
           <form className="form-cadastro" onSubmit={handleSubmit}>
-            <Input type="text" placeholder="Nome" name="nome" />
-            <Input type="email" placeholder="Email" name="email" />
-            <Input type="password" placeholder="Senha" name="senha" />
-            <Button type="submit">Cadastrar</Button>
+            <input
+            className="custom-input"
+
+              type="text"
+              placeholder="Nome"
+              value={nome}
+              onChange={(event) => setNome(event.target.value)} required
+            />
+            <input
+            className="custom-input"
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)} required
+            />
+            <input
+            className="custom-input"
+
+              type="password"
+              placeholder="Senha"
+              value={senha}
+              onChange={(event) => setSenha(event.target.value)} required
+            />
+            <button className="custom-button" type="submit">Cadastrar</button>
           </form>
           {errorMessage && <p className="error-message">{errorMessage}</p>}
         </div>

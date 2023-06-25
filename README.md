@@ -36,6 +36,8 @@ Obs.: A taxa de commits concisos será utilizada na avaliação.
 * Quadro no Trello
 * Repositório no GitHub
 
+
+
 **Linguagens e Skills utilizadas:**
 - <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
 - <img src="https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=white" />
@@ -50,12 +52,18 @@ Obs.: A taxa de commits concisos será utilizada na avaliação.
 <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" />
 
 
+### API JAVA
+
+- ROTAS
+
+
+
 >>AUTORES
 
 **PATRÍCIA KRUGER**
 
 **VIVIANE OLIVEIRA SOARES**
 
-**SAMUEL NUNES A SILVA**
+**SAMUEL NUNES DA SILVA**
 
 
