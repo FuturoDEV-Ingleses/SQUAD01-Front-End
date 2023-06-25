@@ -11,8 +11,8 @@
 .estoque-cadastro form {
   margin-bottom: 20px;
   max-width: 220px;
-  display: flex; /* Adiciona display: flex para o alinhamento */
-  flex-direction: column; /* Alinha os elementos verticalmente */
+  display: flex;
+  flex-direction: column;
 }
 
 .estoque-cadastro label {
@@ -20,20 +20,20 @@
   font-family: Arial, sans-serif;
 }
 
-.estoque-cadastro div.form-field {
+.estoque-cadastro .form-field {
   margin-bottom: 20px;
 }
 
 .estoque-cadastro select,
 .estoque-cadastro input {
-  width: 113%;
+  width: 100%; /* Atualizei para 100% para ocupar a largura completa */
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-family: Arial, sans-serif;
 }
 
-.estoque-cadastro button {
+.estoque-cadastro__button.secondary {
   margin-top: 10px;
   margin-left: 7px;
   background-color: blue;

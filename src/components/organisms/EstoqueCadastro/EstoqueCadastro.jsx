@@ -1,5 +1,4 @@
-import "./EstoqueCadastro.css";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Button, Input } from "../../index";
 
 export default function EstoqueCadastro({
@@ -69,9 +68,9 @@ export default function EstoqueCadastro({
 
   return (
     <section className="estoque-cadastro">
-      <h2 className="sub-title">Cadastro de Produtos</h2>
-      <form onSubmit={handleSave}>
-        <div className="form-field">
+      <h2 className="estoque-cadastro__sub-title">Cadastro de Produtos</h2>
+      <form className="estoque-cadastro__form" onSubmit={handleSave}>
+        <div className="estoque-cadastro__form-field">
           <label htmlFor="armazenada">Armazenamento</label>
           <select
             required
@@ -86,14 +85,15 @@ export default function EstoqueCadastro({
             }}
           >
             <option value="">Selecione o local de armazenamento</option>
-            <option value="Estoque 01">Estoque 01</option>
-            <option value="Estoque 02">Estoque 02</option>
-            <option value="Estoque 03">Estoque 03</option>
-            <option value="Estoque 04">Estoque 04</option>
+            {armazenamentos.map((armazenamento) => (
+              <option key={armazenamento.id} value={armazenamento.nome}>
+                {armazenamento.nome}
+              </option>
+            ))}
           </select>
         </div>
 
-        <div className="form-field">
+        <div className="estoque-cadastro__form-field">
           <label htmlFor="produto">Produto</label>
           <select
             required
@@ -114,7 +114,7 @@ export default function EstoqueCadastro({
           </select>
         </div>
 
-        <div className="form-field">
+        <div className="estoque-cadastro__form-field">
           <label htmlFor="quantidade">Quantidade</label>
           <Input
             required
@@ -131,7 +131,7 @@ export default function EstoqueCadastro({
           />
         </div>
 
-        <div className="form-field">
+        <div className="estoque-cadastro__form-field">
           <label htmlFor="animal">Animal</label>
           <select
             required
@@ -152,7 +152,7 @@ export default function EstoqueCadastro({
           </select>
         </div>
 
-        <div className="form-field">
+        <div className="estoque-cadastro__form-field">
           <label htmlFor="categoria">Categoria</label>
           <select
             required
@@ -172,7 +172,7 @@ export default function EstoqueCadastro({
           </select>
         </div>
 
-        <Button classStyle="secondary" type="submit">
+        <Button classStyle="estoque-cadastro__button secondary" type="submit">
           Salvar
         </Button>
       </form>
