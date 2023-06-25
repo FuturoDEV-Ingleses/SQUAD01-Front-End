@@ -1,5 +1,4 @@
-// Cadastro.jsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../../components/atoms/Button/Button";
 import Input from "../../../src/components/atoms/Input/Input";
@@ -10,12 +9,29 @@ import "./Cadastro.css";
 const Cadastro = () => {
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState("");
+  const [isEmailAlreadyRegistered, setIsEmailAlreadyRegistered] =
+    useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     const { nome, email, senha } = event.target.elements;
 
     try {
+      // e-mail já está cadastrado
+      const checkEmailResponse = await fetch(
+        `/api/verificar-email?email=${email.value}`
+      );
+
+      if (checkEmailResponse.ok) {
+        const { isEmailRegistered } = await checkEmailResponse.json();
+        if (isEmailRegistered) {
+          setIsEmailAlreadyRegistered(true);
+          return;
+        }
+      } else {
+        console.error("Erro ao verificar o e-mail:", checkEmailResponse.status);
+      }
+
       const response = await fetch("/api/cadastro", {
         method: "POST",
         headers: {
@@ -29,8 +45,10 @@ const Cadastro = () => {
       });
 
       if (response.ok) {
-        // Cadastro bem-sucedido, redirecionar para a página de login
-        navigate("/login");
+        if (!isEmailAlreadyRegistered) {
+          //redirecionar para a página de login
+          navigate("/login");
+        }
       } else {
         // Cadastro falhou, exibir mensagem de erro
         const errorData = await response.json();
